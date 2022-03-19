@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Plot from "react-plotly.js";
+import { Wrapper } from "./TaskPlot.styles";
 
 const TaskPlot = ({ tasks }) => {
   let ec = {
@@ -41,16 +42,16 @@ const TaskPlot = ({ tasks }) => {
   }
   let data = [ec, ph, water];
   return (
-    <Plot
-      data={data}
-      layout={{
-        width: 800,
-        height: 500,
-        title: "Task Logs",
-        xaxis: { title: { text: "Date" } },
-        yaxis: { title: { text: "On (1) Off (0)" } },
-      }}
-    />
+    <Wrapper>
+      <Plot
+        data={data}
+        layout={{
+          title: "Task Logs",
+          xaxis: { title: { text: "Date" } },
+          yaxis: { title: { text: "On (1) Off (0)" } },
+        }}
+      />
+    </Wrapper>
   );
 };
 

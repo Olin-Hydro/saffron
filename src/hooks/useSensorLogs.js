@@ -5,11 +5,11 @@ const initialLogs = {
   sensorLogs: [],
 };
 
-export const useSensorLogs = (type) => {
+export const useSensorLogs = (type, prevHours) => {
   const [logs, setLogs] = useState(initialLogs);
-  const getSensorLogs = async (type) => {
+  const getSensorLogs = async (type, prevHours) => {
     try {
-      const logs = await API.getSensorLogs(type);
+      const logs = await API.getSensorLogs(type, prevHours);
       setLogs((prev) => ({
         ...logs.data.data,
       }));
@@ -19,7 +19,7 @@ export const useSensorLogs = (type) => {
   };
   useEffect(() => {
     setLogs(initialLogs);
-    getSensorLogs(type);
-  }, [type]);
+    getSensorLogs(type, prevHours);
+  }, [type, prevHours]);
   return logs;
 };

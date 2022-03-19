@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Plot from "react-plotly.js";
+import { Wrapper } from "./SensorPlot.styles";
 
 const SensorPlot = ({ data, dataType }) => {
   let x = [];
@@ -10,24 +11,24 @@ const SensorPlot = ({ data, dataType }) => {
     y.push(data[i].data);
   }
   return (
-    <Plot
-      data={[
-        {
-          x: x,
-          y: y,
-          type: "scatter",
-          mode: "markers",
-          marker: { color: "red" },
-        },
-      ]}
-      layout={{
-        width: 800,
-        height: 500,
-        title: `${dataType} Sensor Readings`,
-        xaxis: { title: { text: "Date" } },
-        yaxis: { title: { text: `${dataType}` } },
-      }}
-    />
+    <Wrapper>
+      <Plot
+        data={[
+          {
+            x: x,
+            y: y,
+            type: "scatter",
+            mode: "markers",
+            marker: { color: "red" },
+          },
+        ]}
+        layout={{
+          title: `${dataType} Sensor Readings`,
+          xaxis: { title: { text: "Date" } },
+          yaxis: { title: { text: `${dataType}` } },
+        }}
+      />
+    </Wrapper>
   );
 };
 

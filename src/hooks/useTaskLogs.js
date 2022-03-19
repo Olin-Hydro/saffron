@@ -5,11 +5,11 @@ const initialLogs = {
   taskLogs: [],
 };
 
-export const useTaskLogs = () => {
+export const useTaskLogs = (prevHours) => {
   const [logs, setLogs] = useState(initialLogs);
-  const getTaskLogs = async () => {
+  const getTaskLogs = async (prevHours) => {
     try {
-      const logs = await API.getTaskLogs();
+      const logs = await API.getTaskLogs(prevHours);
       setLogs((prev) => ({
         ...logs.data.data,
       }));
@@ -19,7 +19,7 @@ export const useTaskLogs = () => {
   };
   useEffect(() => {
     setLogs(initialLogs);
-    getTaskLogs();
-  }, []);
+    getTaskLogs(prevHours);
+  }, [prevHours]);
   return logs;
 };
