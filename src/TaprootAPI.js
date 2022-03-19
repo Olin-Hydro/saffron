@@ -10,7 +10,7 @@ const API = {
     return await axios.post(
       REACT_APP_API_URL,
       {
-        query: `query getLogs($type:String){
+        query: `query getSenseLogs($type:String){
           sensorLogs(type:$type) {
             id
             type
@@ -21,6 +21,24 @@ const API = {
         variables: {
           type: type,
         },
+      },
+      {
+        headers: headers,
+      }
+    );
+  },
+  getTaskLogs: async () => {
+    return await axios.post(
+      REACT_APP_API_URL,
+      {
+        query: `query getTaskLogs{
+          taskLogs {
+            id
+            type
+            data
+            createdAt
+          }
+        }`,
       },
       {
         headers: headers,

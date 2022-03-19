@@ -1,17 +1,22 @@
 import { useSensorLogs } from "../hooks/useSensorLogs";
-import SensorLinePlot from "./SensorLinePlot";
+import { useTaskLogs } from "../hooks/useTaskLogs";
+import SensorPlot from "./SensorPlot";
+import TaskPlot from "./TaskPlot";
 
 const Home = () => {
   const phLogs = useSensorLogs("ph").sensorLogs;
   const ecLogs = useSensorLogs("ec").sensorLogs;
   const tempLogs = useSensorLogs("temp").sensorLogs;
+  const taskLogs = useTaskLogs().taskLogs;
+  console.log(taskLogs);
   return (
-  <div id={"ph"}>
-    <SensorLinePlot data={phLogs} dataType={"ph"}></SensorLinePlot>
-    <SensorLinePlot data={ecLogs} dataType={"ec"}></SensorLinePlot>
-    <SensorLinePlot data={tempLogs} dataType={"temp"}></SensorLinePlot>
-  </div>
-  )
+    <div>
+      <TaskPlot tasks={taskLogs}></TaskPlot>
+      <SensorPlot data={phLogs} dataType={"ph"}></SensorPlot>
+      <SensorPlot data={ecLogs} dataType={"ec"}></SensorPlot>
+      <SensorPlot data={tempLogs} dataType={"temp"}></SensorPlot>
+    </div>
+  );
 };
 
 export default Home;

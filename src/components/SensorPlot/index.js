@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Plot from "react-plotly.js";
 
-const SensorLinePlot = ({ data, dataType }) => {
+const SensorPlot = ({ data, dataType }) => {
   let x = [];
   let y = [];
   for (let i in data) {
@@ -25,10 +25,15 @@ const SensorLinePlot = ({ data, dataType }) => {
         height: 500,
         title: `${dataType} Sensor Readings`,
         xaxis: { title: { text: "Date" } },
-        yaxis: {title: { text: `${dataType}`}}
+        yaxis: { title: { text: `${dataType}` } },
       }}
     />
   );
 };
 
-export default SensorLinePlot;
+SensorPlot.propTypes = {
+  data: PropTypes.array,
+  dataType: PropTypes.string,
+};
+
+export default SensorPlot;
