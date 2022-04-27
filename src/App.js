@@ -13,9 +13,9 @@ function App() {
     <Container fluid className='MainBackground'>
       <Container className='MainContent'> 
       <Container>
-        <Navbar bg="light" variant="light">
+        <Navbar bg="none" variant="light">
           <Container className='justify-content-between'>
-            <Col>
+            <Col xs={3}>
               <Navbar.Brand href="#home">
                 <img
                   src='./images/logo-mono-color.svg'
@@ -24,15 +24,17 @@ function App() {
                 />
               </Navbar.Brand>
             </Col>
-            <Col xs={6}>
-              <Nav className="me-auto justify-content-center">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#logs">Logs</Nav.Link>
-                <Nav.Link href="#config">Config</Nav.Link>
-                <Nav.Link href="#camera">Camera</Nav.Link>
-              </Nav>
+            <Col xs="auto">
+              <Container className='navMenu'>
+                <Nav className="me-auto justify-content-center">
+                  <Nav.Link href="#home">Home</Nav.Link>
+                  <Nav.Link href="#logs">Logs</Nav.Link>
+                  <Nav.Link href="#config">Config</Nav.Link>
+                  <Nav.Link href="#camera">Camera</Nav.Link>
+                </Nav>
+              </Container>
             </Col>
-            <Col>
+            <Col xs={3}>
                 <Row className='justify-content-between'>
                   <Col>
                     <img

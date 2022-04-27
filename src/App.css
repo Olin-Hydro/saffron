@@ -9,7 +9,7 @@
     /* width: 100vw; */
     height: 100vh;
     
-    background: radial-gradient(101.5% 143.11% at 50.04% 120.86%, rgba(255, 255, 255, 0) 60.06%, rgb(45, 216, 133) 100%), #FFFFFF;
+    background: radial-gradient(101.5% 143.11% at 50.04% 120.86%, rgba(255, 255, 255, 0) 60.06%, rgba(45, 216, 134, 0.11) 100%), #FFFFFF;
 }
 
 .MainContent {
@@ -32,3 +32,19 @@
     margin: 0px 0px; */
 }
 
+.navMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* padding: 7px 38px; */
+
+    position: static;
+    /* width: 472px;
+    height: 37px;
+    left: calc(50% - 472px/2);
+    top: calc(50% - 37px/2); */
+
+    background: #EAFFF4;
+    border-radius: 12px;
+
+}
