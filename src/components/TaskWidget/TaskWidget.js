@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TaskWidget = ({ TaskType, TaskStatus, enableSwitch, avgTime, numCycles }) => {  
+const TaskWidget = ({ TaskType, taskState, enableSwitch, avgTime, numCycles }) => {  
 
   return (
     <div>
       <ul>
         <li>{TaskType}</li>
-        <li>{TaskStatus}</li>
+        <li>{taskState}</li>
         <li>{enableSwitch}</li>
         <li>{avgTime}</li>
         <li>{numCycles}</li>
@@ -18,7 +18,7 @@ const TaskWidget = ({ TaskType, TaskStatus, enableSwitch, avgTime, numCycles }) 
 
 TaskWidget.propTypes = {
   TaskType: PropTypes.string,
-  TaskStatus: PropTypes.string,
+  taskState: PropTypes.string,
   enableSwitch: PropTypes.number,
   avgTime: PropTypes.number,
   numCycles: PropTypes.number,

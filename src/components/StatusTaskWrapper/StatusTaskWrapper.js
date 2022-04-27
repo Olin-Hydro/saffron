@@ -10,6 +10,15 @@ import { useTaskLogs } from "../../hooks/useTaskLogs";
 
 let prevHours = 24;
 
+const getSensorState = (sensorLogs) => {
+  return 'normal'
+}
+
+const getTaskState = (taskLogs) => {
+  // return (taskLogs.data[taskLogs.data.length - 1] ? 'running' : 'idle');
+  return 'running'
+}
+
 const getMean = (sensorLogs) => {
   let mean = 0;
   for (let i in sensorLogs) {
@@ -41,19 +50,19 @@ const StatusTaskWrapper = ({ statusTaskType }) => {
 
   const statusLogs = useSensorLogs(statusTaskType, prevHours).sensorLogs;
   // compute these on the server instead of client
+  var statusState = getSensorState(statusTaskType);
   var mean = getMean(statusLogs)
   var min = getMin(statusLogs)
   var max = getMax(statusLogs)
-  var statusState = 'normal'
 
   const taskLogs = useTaskLogs(prevHours).taskLogs;
-  var TaskStatus = 'running'
+  var taskState = getTaskState(taskLogs);
   var enableSwitch = 'on-enabled'
   var avgTime = 2
   var numCycles = 3
 
   return (
-    <Container>
+    <Container className="StatusTaskWrapper">
       <p>{statusTaskType}</p>
       <StatusWidget
       statusType={statusTaskType}
@@ -66,7 +75,7 @@ const StatusTaskWrapper = ({ statusTaskType }) => {
       {/* TODO: add divider */}
       <TaskWidget
         TaskType={statusTaskType}
-        TaskStatus={TaskStatus}
+        TaskStatus={taskState}
         enableSwitch={enableSwitch}
         avgTime={avgTime}
         numCycles={numCycles}
