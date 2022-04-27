@@ -1,0 +1,12 @@
+.MainBackground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 100px;
+
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    
+    background: radial-gradient(101.5% 143.11% at 50.04% 120.86%, rgba(255, 255, 255, 0) 60.06%, rgb(45, 216, 133) 100%), #FFFFFF;
+}
