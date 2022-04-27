@@ -1,0 +1,11 @@
+.navMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    position: static;
+
+    background: #EAFFF4;
+    border-radius: 12px;
+
+}

@@ -31,20 +31,3 @@
     flex-grow: 1;
     margin: 0px 0px; */
 }
-
-.navMenu {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    /* padding: 7px 38px; */
-
-    position: static;
-    /* width: 472px;
-    height: 37px;
-    left: calc(50% - 472px/2);
-    top: calc(50% - 37px/2); */
-
-    background: #EAFFF4;
-    border-radius: 12px;
-
-}
