@@ -1,6 +1,6 @@
 import React from "react";
 
-import StatusTaskWrapper from "../StatusTaskWrapper/StatusTaskWrapper";
+import SensorTaskWrapper from "../SensorTaskWrapper/SensorTaskWrapper";
 import { Col, Container, Row } from "react-bootstrap";
 
 import './Home.css'
@@ -10,14 +10,14 @@ const Home = () => {
     <Container className="HomeContent" xs="auto">
       <Row className="WidgetRow">
         <Col className="WidgetCol">
-          <StatusTaskWrapper
-            statusTaskType="ph"
-          ></StatusTaskWrapper>
+          <SensorTaskWrapper
+            sensorTaskType="ph"
+          ></SensorTaskWrapper>
         </Col>
         <Col className="WidgetCol">
-          <StatusTaskWrapper
-              statusTaskType="ec"
-          ></StatusTaskWrapper>
+          <SensorTaskWrapper
+              sensorTaskType="ec"
+          ></SensorTaskWrapper>
         </Col>
       </Row>
     </Container>

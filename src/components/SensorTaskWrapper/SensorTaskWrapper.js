@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 
-import StatusWidget from "../StatusWidget/StatusWidget";
+import SensorWidget from "../SensorWidget/SensorWidget";
 import TaskWidget from "../TaskWidget/TaskWidget";
 
 import { useSensorLogs } from "../../hooks/useSensorLogs";
@@ -46,14 +46,14 @@ const getMin = (sensorLogs) => {
   );
 };
 
-const StatusTaskWrapper = ({ statusTaskType }) => {
+const SensorTaskWrapper = ({ sensorTaskType }) => {
 
-  const statusLogs = useSensorLogs(statusTaskType, prevHours).sensorLogs;
+  const sensorLogs = useSensorLogs(sensorTaskType, prevHours).sensorLogs;
   // compute these on the server instead of client
-  var statusState = getSensorState(statusTaskType);
-  var mean = getMean(statusLogs)
-  var min = getMin(statusLogs)
-  var max = getMax(statusLogs)
+  var sensorState = getSensorState(sensorTaskType);
+  var mean = getMean(sensorLogs)
+  var min = getMin(sensorLogs)
+  var max = getMax(sensorLogs)
 
   const taskLogs = useTaskLogs(prevHours).taskLogs;
   var taskState = getTaskState(taskLogs);
@@ -62,20 +62,20 @@ const StatusTaskWrapper = ({ statusTaskType }) => {
   var numCycles = 3
 
   return (
-    <Container className="StatusTaskWrapper">
-      <p>{statusTaskType}</p>
-      <StatusWidget
-      statusType={statusTaskType}
-      statusLogs={statusLogs}
+    <Container className="SensorTaskWrapper">
+      <p>{sensorTaskType}</p>
+      <SensorWidget
+      sensorType={sensorTaskType}
+      sensorLogs={sensorLogs}
       mean={mean}
       min={min}
       max={max}
-      statusState={statusState}
-      ></StatusWidget>
+      sensorState={sensorState}
+      ></SensorWidget>
       {/* TODO: add divider */}
       <TaskWidget
-        TaskType={statusTaskType}
-        TaskStatus={taskState}
+        TaskType={sensorTaskType}
+        TaskState={taskState}
         enableSwitch={enableSwitch}
         avgTime={avgTime}
         numCycles={numCycles}
@@ -84,10 +84,10 @@ const StatusTaskWrapper = ({ statusTaskType }) => {
   );
 };
 
-StatusTaskWrapper.propTypes = {
+SensorTaskWrapper.propTypes = {
   ecData: PropTypes.array,
   tempData: PropTypes.array,
   prevHours: PropTypes.number,
 };
 
-export default StatusTaskWrapper;
+export default SensorTaskWrapper;
