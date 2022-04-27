@@ -74,8 +74,8 @@ const SensorTaskWrapper = ({ sensorTaskType }) => {
       ></SensorWidget>
       {/* TODO: add divider */}
       <TaskWidget
-        TaskType={sensorTaskType}
-        TaskState={taskState}
+        taskType={sensorTaskType}
+        taskState={taskState}
         enableSwitch={enableSwitch}
         avgTime={avgTime}
         numCycles={numCycles}
