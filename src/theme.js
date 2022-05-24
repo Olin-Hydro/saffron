@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
 // A custom theme for this app
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     type: 'light',
     primary: { // sprout green
@@ -22,6 +22,27 @@ const theme = createTheme({
     background: {
       default: '#ffffff',
     },
+    error: {
+      main: '#FF3124',
+      light: '#FFEBEA',
+    },
+    warning: {
+      main: '#FFD600',
+      light: '#FFFBEC',
+    },
+    success: {
+      main: '#2DD886',
+      light: '#DDFFEE',
+      lighter: '#EFFBF5',
+    },
+    disabled: {
+      main: '#D4D4D4',
+      light: '#F1F1F1',
+    },
+    off: {
+      main: '#9A9A9A',
+      light: '#F1F1F1',
+    },
     text: {
       primary: '#757575',
       secondary: '#ADADAD',
@@ -31,43 +52,13 @@ const theme = createTheme({
       white: '#FFFFFF',
       lightGreen: '#79E7B2',
     },
-    error: {
-      main: '#FF3124',
-    },
-    errorBG: {
-      main: '#FFEBEA',
-    },
-    warning: {
-      main: '#FFD600',
-    },
-    warningBG: {
-      main: '#FFFBEC',
-    },
-    success: {
-      main: '#2DD886',
-    },
-    successBG: {
-      main: '#DDFFEE',
-    },
-    successBGLight: {
-      main: '#EFFBF5',
-    },
-    disabled: {
-      main: '#D4D4D4',
-    },
-    disabledBG: {
-      main: '#F1F1F1',
-    },
-    off: {
-      main: '#9A9A9A',
-    },
-    offBG: {
-      main: '#F1F1F1',
-    },
     graphGridline: {
       main: 'rgba(0, 0, 0, 0.13)',
     },
   },
+  // status: {
+    
+  // },
   typography: {
     fontFamily: [
       'Quicksand',
@@ -123,5 +114,60 @@ const theme = createTheme({
   },
   spacing: 2,
 });
+
+theme = createTheme(theme, {
+  components: {
+    MuiChip: {
+      styleOverrides: {
+        root: {
+            borderRadius: 7,
+            textTransform: 'uppercase',
+        },
+      },
+      variants: [
+        {
+          props: { variant: 'running' },
+          style: {
+            color: theme.palette.success.main,
+            backgroundColor: theme.palette.success.light,
+            fontWeight: 600,
+          },
+        },
+        {
+          props: { variant: 'idle' },
+          style: {
+            color: theme.palette.success.main,
+            backgroundColor: theme.palette.success.light,
+            fontWeight: 600,
+          },
+        },
+        {
+          props: { variant: 'warning' },
+          style: {
+            color: theme.palette.warning.main,
+            backgroundColor: theme.palette.warning.light,
+            fontWeight: 600,
+          },
+        },
+        {
+          props: { variant: 'error' },
+          style: {
+            color: theme.palette.error.main,
+            backgroundColor: theme.palette.error.light,
+            fontWeight: 600,
+          },
+        },
+        {
+          props: { variant: 'offline' },
+          style: {
+            color: theme.palette.disabled.main,
+            backgroundColor: theme.palette.disabled.light,
+            fontWeight: 600,
+          },
+        },
+      ],
+    },
+  },
+})
 
 export default theme;
