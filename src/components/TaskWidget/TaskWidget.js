@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Col, Container, Row, Stack} from "react-bootstrap";
+import { Typography, Stack, Card, CardContent, Grid, SvgIcon, Icon, IconButton } from "@mui/material";
+import SettingsIcon from '@mui/icons-material/Settings';
+import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
-import TaskControlSwitch from "./TaskControlSwitch";
+import TaskControlSwitch from "./TaskControlSwitch";  
 import TaskStateIndicator from "./TaskStateIndicator.js";
 
 import "./TaskWidget.css"
@@ -10,41 +12,56 @@ import "./TaskWidget.css"
 const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {  
 
   return (
-    <Stack gap="auto" className="TaskWidget">
-      <Container className="TaskHeader">
-        <Row>
-          <Col className="TaskHeaderIcon">
-            <img src=""></img>
-          </Col>
-          <Col className="TaskHeaderTitle">
-            <h4>Dispenser</h4>
-          </Col>
-          <Col className="TaskHeaderSettingsButton">
-            <img src=""></img>
-          </Col>
-        </Row>
-      </Container>
-      <Container className="TaskControls">
-        <Stack gap="auto">
-          <TaskStateIndicator>
-            taskState={taskState}
-          </TaskStateIndicator>
-          <TaskControlSwitch
-            enableSwitch={enableSwitch}>
-          </TaskControlSwitch>
+    <Card>
+      <CardContent>
+        <Stack spacing={7}>
+          {/* title */}
+          <Grid
+            container
+            justifyContent="space-between"
+            alignItems="center"
+            spacing={5}
+          >
+            <Grid item xs="auto">
+              {/* TODO: add logic for icon selection here */}
+              <SvgIcon component={ECIcon} inheritViewBox />
+            </Grid>
+            <Grid item xs>
+              <Typography variant="widgetTitle" color="text.primary">Title</Typography>
+            </Grid>
+            <Grid item xs="auto">
+              <IconButton aria-label="settings">
+                <SettingsIcon color="light"></SettingsIcon>
+              </IconButton>
+            </Grid>
+          </Grid>
+          {/* Task controls */}
+          <Stack spacing={7}>
+            <TaskStateIndicator>
+              taskState={taskState}
+            </TaskStateIndicator>
+            <TaskControlSwitch
+              enableSwitch={enableSwitch}>
+            </TaskControlSwitch>
+          </Stack>
+          {/* Numerical Stats */}
+            <Stack gap={1}>
+              <Grid container alignItems="left">
+                <Grid item>
+                  <Typography variant="widgetStatSmall" color="text.secondary">{avgTime}s</Typography>
+                  <Typography variant="widgetStatLabel" color="text.light"> avg dispense time</Typography>
+                </Grid>
+              </Grid>
+              <Grid container alignItems="left">
+                <Grid item>
+                  <Typography variant="widgetStatSmall" color="text.secondary">{numCycles}</Typography>
+                  <Typography variant="widgetStatLabel" color="text.light"> cycles run today</Typography>
+                </Grid>
+              </Grid>
+            </Stack>
         </Stack>
-      </Container>
-      <Container className="TaskStatus">
-        <Stack gap={1}>
-          <Container className="TaskStatusText">
-            <p>{avgTime} avg dispense time</p>
-          </Container>
-          <Container className="TaskStatusText">
-            <p>{numCycles} cycles run today</p>
-          </Container>
-        </Stack>
-      </Container>
-    </Stack>
+      </CardContent>
+    </Card>
   );
 };
 
