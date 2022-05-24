@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// KEEP : import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) => {  
 
   return (

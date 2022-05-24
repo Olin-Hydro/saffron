@@ -1,6 +1,7 @@
 import React from "react";
 
-import SensorTaskWrapper from "../SensorTaskWrapper/SensorTaskWrapper";
+import WidgetWrapper from "../../components/WidgetWrapper";
+import SensorTaskWrapper from "../../components/SensorTaskWrapper/SensorTaskWrapper";
 import { Col, Container, Row } from "react-bootstrap";
 
 import './Home.css'
@@ -10,9 +11,11 @@ const Home = () => {
     <Container className="HomeContent" xs="auto">
       <Row className="WidgetRow">
         <Col className="WidgetCol">
-          <SensorTaskWrapper
-            sensorTaskType="ph"
-          ></SensorTaskWrapper>
+          <WidgetWrapper>
+            <SensorTaskWrapper
+              sensorTaskType="ph"
+            ></SensorTaskWrapper>
+          </WidgetWrapper>
         </Col>
         <Col className="WidgetCol">
           <SensorTaskWrapper
