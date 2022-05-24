@@ -1,20 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Button } from "react-bootstrap";
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Icon } from '@iconify/react';
 
 import "./TaskWidget.css"
 
-const TaskControlSwitch = ({taskState}) => {  
+const TaskControlSwitch = ({enableSwitch}) => {  
 
   return (
-    <Button>
-      <p>switch</p>
-    </Button>
+    <LoadingButton 
+      variant="outlined"
+      size="small"
+      style={{ borderWidth: 3 }}
+      // TODO: loading spinner logic
+      // loading
+      loadingPosition="start"
+      startIcon={<Icon icon="fontisto:power" height="14" />}>
+        {enableSwitch ? "Turn On" : "Turn Off"}
+      </LoadingButton>
   );
 };
 
 TaskControlSwitch.propTypes = {
-  taskState: PropTypes.string,
+  enableSwitch: PropTypes.string,
 };
 
 export default TaskControlSwitch;
