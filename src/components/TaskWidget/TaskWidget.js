@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Typography, Stack, Card, CardContent, Grid, SvgIcon, Icon, IconButton } from "@mui/material";
+import { Typography, Stack, Grid, SvgIcon, IconButton } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
@@ -12,52 +12,54 @@ import "./TaskWidget.css"
 const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {  
 
   return (
-    <Stack spacing={7}>
-      {/* title */}
-      <Grid
-        container
-        justifyContent="space-between"
-        alignItems="center"
-        spacing={5}
-      >
-        <Grid item xs="auto">
-          {/* TODO: add logic for icon selection here */}
-          <SvgIcon component={ECIcon} inheritViewBox />
-        </Grid>
-        <Grid item xs>
-          <Typography variant="widgetTitle" color="text.primary">Title</Typography>
-        </Grid>
-        <Grid item xs="auto">
-          <IconButton aria-label="settings">
-            <SettingsIcon color="light"></SettingsIcon>
-          </IconButton>
-        </Grid>
-      </Grid>
-      {/* Task controls */}
+    <Grid item>
       <Stack spacing={7}>
-        <TaskStateIndicator>
-          taskState={taskState}
-        </TaskStateIndicator>
-        <TaskControlSwitch
-          enableSwitch={enableSwitch}>
-        </TaskControlSwitch>
-      </Stack>
-      {/* Numerical Stats */}
-        <Stack gap={1}>
-          <Grid container alignItems="left">
-            <Grid item>
-              <Typography variant="widgetStatSmall" color="text.secondary">{avgTime}s</Typography>
-              <Typography variant="widgetStatLabel" color="text.light"> avg dispense time</Typography>
-            </Grid>
+        {/* title */}
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={5}
+        >
+          <Grid item xs="auto">
+            {/* TODO: add logic for icon selection here */}
+            <SvgIcon component={ECIcon} inheritViewBox />
           </Grid>
-          <Grid container alignItems="left">
-            <Grid item>
-              <Typography variant="widgetStatSmall" color="text.secondary">{numCycles}</Typography>
-              <Typography variant="widgetStatLabel" color="text.light"> cycles run today</Typography>
-            </Grid>
+          <Grid item xs>
+            <Typography variant="widgetTitle" color="text.primary">Title</Typography>
           </Grid>
+          <Grid item xs="auto">
+            <IconButton aria-label="settings">
+              <SettingsIcon color="light"></SettingsIcon>
+            </IconButton>
+          </Grid>
+        </Grid>
+        {/* Task controls */}
+        <Stack spacing={7}>
+          <TaskStateIndicator>
+            taskState={taskState}
+          </TaskStateIndicator>
+          <TaskControlSwitch
+            enableSwitch={enableSwitch}>
+          </TaskControlSwitch>
         </Stack>
-    </Stack>
+        {/* Numerical Stats */}
+          <Stack gap={1}>
+            <Grid container alignItems="left">
+              <Grid item>
+                <Typography variant="widgetStatSmall" color="text.secondary">{avgTime}s</Typography>
+                <Typography variant="widgetStatLabel" color="text.light"> avg dispense time</Typography>
+              </Grid>
+            </Grid>
+            <Grid container alignItems="left">
+              <Grid item>
+                <Typography variant="widgetStatSmall" color="text.secondary">{numCycles}</Typography>
+                <Typography variant="widgetStatLabel" color="text.light"> cycles run today</Typography>
+              </Grid>
+            </Grid>
+          </Stack>
+      </Stack>
+    </Grid>
   );
 };
 

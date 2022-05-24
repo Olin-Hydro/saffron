@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, Grid } from "@mui/material";
 
 const WidgetWrapper = ({ children }) => {  
 
   return (
     <Card>
       <CardContent>
-        {children}
+          <Grid container direction="column">
+            {/* TODO: Map children to grid items instead of wrapping individually */}
+            {children}
+          </Grid>
       </CardContent>
     </Card>
   );
