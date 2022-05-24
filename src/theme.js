@@ -4,11 +4,20 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     type: 'light',
-    primary: {
+    primary: { // sprout green
       main: '#2DD886',
     },
     secondary: {
       main: '#5E807F',
+    },
+    light: {
+      main: '#ECECEC',
+    },
+    dark: {
+      main: '#757575',
+    },
+    lightGreen: {
+      main: '#EFFBF5',
     },
     background: {
       default: '#ffffff',
@@ -16,9 +25,11 @@ const theme = createTheme({
     text: {
       primary: '#757575',
       secondary: '#ADADAD',
+      light: '#BEBEBE',
       disabled: '#D4D4D4',
       hint: '#757575',
-      white: 'FFFFFF'
+      white: '#FFFFFF',
+      lightGreen: '#79E7B2',
     },
     error: {
       main: '#FF3124',
@@ -84,9 +95,11 @@ const theme = createTheme({
       fontWeight: 1000,
     },
     widgetTitle: {
+      align: 'left',
       fontSize: 23,
+      fontWeight: 600,
     },
-    widgetStatValue: {
+    widgetStat: {
       fontFamily: 'Questrial',
       fontSize: 38,
     },
@@ -95,6 +108,7 @@ const theme = createTheme({
       fontSize: 22,
     },
     widgetStatLabel: {
+      fontWeight: 600,
       fontSize: 15.7,
     },
     widgetStatusBadge: {
@@ -107,6 +121,7 @@ const theme = createTheme({
   shape: {
     borderRadius: 10,
   },
+  spacing: 2,
 });
 
 export default theme;
