@@ -54,11 +54,14 @@ const theme = createTheme({
       main: '#F1F1F1',
     },
     graphGridline: {
-      main: rgba(0, 0, 0, 0.13),
+      main: 'rgba(0, 0, 0, 0.13)',
     },
   },
   typography: {
-    fontFamily: 'Quicksand',
+    fontFamily: [
+      'Quicksand',
+      'Questrial',
+    ].join(','),
     h3: {
       fontWeight: 600,
     },
