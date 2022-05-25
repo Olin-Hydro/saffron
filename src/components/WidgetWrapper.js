@@ -7,7 +7,7 @@ const WidgetWrapper = ({ children }) => {
   return (
     <Card>
       <CardContent>
-          <Grid container direction="column">
+          <Grid container direction="row">
             {/* TODO: Map children to grid items instead of wrapping individually */}
             {children}
           </Grid>

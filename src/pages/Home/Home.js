@@ -14,36 +14,36 @@ const Home = () => {
   return (
     <Grid container spacing={2} direction="column" >
       <Grid container item direction="row">
-        <Grid item xs={2}>
+        <Grid item>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item>
           <WidgetWrapper>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
       </Grid>
       <Grid container item direction="row">
-        <Grid item xs={2}>
+        <Grid item>
           <WidgetWrapper>
-          < SensorWidget></SensorWidget>
+            <SensorWidget></SensorWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item>
           <WidgetWrapper>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
