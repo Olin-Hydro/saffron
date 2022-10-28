@@ -4,12 +4,10 @@ import { Typography, Stack, Grid, SvgIcon, IconButton } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
-import TaskControlSwitch from "./TaskControlSwitch";  
+import TaskControlSwitch from "./TaskControlSwitch";
 import TaskStateIndicator from "./TaskStateIndicator.js";
 
-import "./TaskWidget.css"
-
-const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {  
+const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {
 
   return (
     <Grid item>
@@ -23,14 +21,24 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
         >
           <Grid item xs="auto">
             {/* TODO: add logic for icon selection here */}
-            <SvgIcon component={ECIcon} inheritViewBox />
+            <SvgIcon
+              component={ECIcon}
+              inheritViewBox
+              fontSize="small"
+            />
           </Grid>
           <Grid item xs>
-            <Typography variant="widgetTitle" color="text.primary">Title</Typography>
+            <Typography
+              variant="widgetTitle"
+              color="text.primary"
+            >Title</Typography>
           </Grid>
           <Grid item xs="auto">
             <IconButton aria-label="settings">
-              <SettingsIcon color="light"></SettingsIcon>
+              <SettingsIcon
+                color="light"
+                fontSize="small"
+              ></SettingsIcon>
             </IconButton>
           </Grid>
         </Grid>
@@ -44,20 +52,32 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
           </TaskControlSwitch>
         </Stack>
         {/* Numerical Stats */}
-          <Stack gap={1}>
-            <Grid container alignItems="left">
-              <Grid item>
-                <Typography variant="widgetStatSmall" color="text.secondary">{avgTime}s</Typography>
-                <Typography variant="widgetStatLabel" color="text.light"> avg dispense time</Typography>
-              </Grid>
+        <Stack gap={1}>
+          <Grid container alignItems="left">
+            <Grid item>
+              <Typography
+                variant="widgetStatSmall"
+                color="text.secondary"
+              >{avgTime}s</Typography>
+              <Typography
+                variant="widgetStatLabel"
+                color="text.light"
+              > avg dispense time</Typography>
             </Grid>
-            <Grid container alignItems="left">
-              <Grid item>
-                <Typography variant="widgetStatSmall" color="text.secondary">{numCycles}</Typography>
-                <Typography variant="widgetStatLabel" color="text.light"> cycles run today</Typography>
-              </Grid>
+          </Grid>
+          <Grid container alignItems="left">
+            <Grid item>
+              <Typography
+                variant="widgetStatSmall"
+                color="text.secondary"
+              >{numCycles}</Typography>
+              <Typography
+                variant="widgetStatLabel"
+                color="text.light"
+              > cycles run today</Typography>
             </Grid>
-          </Stack>
+          </Grid>
+        </Stack>
       </Stack>
     </Grid>
   );
