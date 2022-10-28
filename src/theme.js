@@ -20,7 +20,7 @@ let theme = createTheme({
       main: '#EFFBF5',
     },
     background: {
-      default: '#ffffff',
+      default: '#56B284',
     },
     error: {
       main: '#FF3124',
