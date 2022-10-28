@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { Chip } from "@mui/material";
 import { Icon } from '@iconify/react';
 
-import "./TaskWidget.css"
-
 const TaskStateIndicator = ({taskState}) => {  
 
   // const getState = ({taskState}) => {

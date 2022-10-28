@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Icon } from '@iconify/react';
 
-import "./TaskWidget.css"
-
 const TaskControlSwitch = ({enableSwitch}) => {  
 
   return (

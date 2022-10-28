@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Nav, Row, Col} from 'react-bootstrap';
 
-import './MainNavbar.css'
+// import './MainNavbar.css'
 
 const MainNavbar = () => {
 
