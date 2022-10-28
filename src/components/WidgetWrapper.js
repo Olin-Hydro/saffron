@@ -1,3 +1,7 @@
+/* A general purpose wrapper for widgets.
+ * Provides a white box and a grid structure to populate with items
+ */
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Card, CardContent, Grid } from "@mui/material";
@@ -5,10 +9,13 @@ import { Card, CardContent, Grid } from "@mui/material";
 const WidgetWrapper = ({ children }) => {  
 
   return (
-    <Card>
+    <Card >
       <CardContent>
-          <Grid container direction="row">
-            {/* TODO: Map children to grid items instead of wrapping individually */}
+          <Grid 
+            container
+            direction="row"
+            justifyContent="space-between"
+            spacing={10}>
             {children}
           </Grid>
       </CardContent>
@@ -16,8 +23,8 @@ const WidgetWrapper = ({ children }) => {
   );
 };
 
-// TaskWidget.propTypes = {
-//   props: PropTypes.object,
-// };
+WidgetWrapper.propTypes = {
+  props: PropTypes.object,
+};
 
 export default WidgetWrapper;
