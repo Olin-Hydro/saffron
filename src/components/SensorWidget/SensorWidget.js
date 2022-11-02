@@ -16,7 +16,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
       direction="column"
       justifyContent="space-between"
       alignItems="stretch"
-      sx={{ height: '12em', width: '12em'}}>
+      sx={{ height: '12em', width: '12em' }}>
       {/* title */}
       <Grid
         container
@@ -31,7 +31,6 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           <SvgIcon
             component={ECIcon}
             inheritViewBox
-            fontSize="small"
           />
         </Grid>
         <Grid
@@ -44,10 +43,12 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
         <Grid
           item
           xs="auto">
-          <IconButton aria-label="settings">
+          <IconButton
+            aria-label="settings"
+            sx={{ margin: '-.35em' }}
+          >
             <OpenInNewIcon
               color="light"
-              fontSize="small"
             ></OpenInNewIcon>
           </IconButton>
         </Grid>

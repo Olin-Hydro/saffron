@@ -24,7 +24,6 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
             <SvgIcon
               component={ECIcon}
               inheritViewBox
-              fontSize="small"
             />
           </Grid>
           <Grid item xs>
@@ -34,10 +33,12 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
             >Title</Typography>
           </Grid>
           <Grid item xs="auto">
-            <IconButton aria-label="settings">
+            <IconButton
+              aria-label="settings"
+              sx={{ margin: '-.35em' }}
+            >
               <SettingsIcon
                 color="light"
-                fontSize="small"
               ></SettingsIcon>
             </IconButton>
           </Grid>
