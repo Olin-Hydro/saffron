@@ -16,7 +16,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
       direction="column"
       justifyContent="space-between"
       alignItems="stretch"
-      xs="auto">
+      sx={{ height: '12em', width: '12em'}}>
       {/* title */}
       <Grid
         container

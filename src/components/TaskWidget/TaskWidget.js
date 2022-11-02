@@ -10,7 +10,7 @@ import TaskStateIndicator from "./TaskStateIndicator.js";
 const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {
 
   return (
-    <Grid item>
+    <Grid item sx={{ height: '12em', width: '12em'}}>
       <Stack spacing={7}>
         {/* title */}
         <Grid
