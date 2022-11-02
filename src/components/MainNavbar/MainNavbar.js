@@ -1,65 +1,85 @@
-import React from "react";
+import * as React from 'react';
+import { Box, Button, Grid, IconButton, Toolbar, Tooltip } from '@mui/material';
 
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import { Nav, Row, Col} from 'react-bootstrap';
+// import icons as components
+import { ReactComponent as LogoMonoWhite } from "../../icons/logo-mono-white.svg";
+import { ReactComponent as HelpIcon } from "../../icons/navbar/help.svg";
+import { ReactComponent as GithubIcon } from "../../icons/navbar/github.svg";
+import { ReactComponent as SettingsIcon } from "../../icons/navbar/settings.svg";
 
-// import './MainNavbar.css'
+function MainNavbar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-const MainNavbar = () => {
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
-    <Container>
-      <Navbar bg="none" variant="light">
-        <Container className='justify-content-between'>
-          <Col xs={3}>
-            <Navbar.Brand href="#home">
-              <img
-                src='./images/logo-mono-color.svg'
-                className="d-inline-block align-top"
-                alt="Olin Hydro logo"
-              />
-            </Navbar.Brand>
-          </Col>
-          <Col xs="auto">
-            <Container className='navMenu'>
-              <Nav className="me-auto justify-content-center">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#logs">Logs</Nav.Link>
-                <Nav.Link href="#config">Config</Nav.Link>
-                <Nav.Link href="#camera">Camera</Nav.Link>
-              </Nav>
-            </Container>
-          </Col>
-          <Col xs={3}>
-              <Row className='justify-content-between'>
-                <Col>
-                  <img
-                    src='./images/navbar/help.svg'
-                    className="d-inline-block align-center"
-                    alt="help"
-                  />
-                </Col>
-                <Col>
-                  <img
-                    src='./images/navbar/github.svg'
-                    className="d-inline-block align-center"
-                    alt="view on github"
-                  />
-                </Col>
-                <Col>
-                  <img
-                    src='./images/navbar/settings.svg'
-                    className="d-inline-block align-center"
-                    alt="settings"
-                  />
-                </Col>
-            </Row>
-          </Col>
-        </Container>
-      </Navbar>
-    </Container>
+    <Box maxWidth="lg" padding={10}>
+      <Toolbar disableGutters>
+        <Grid container maxWidth="xl" alignItems="center">
+          <Grid item xs={3}>
+            <LogoMonoWhite>
+            </LogoMonoWhite>
+          </Grid>
+          <Grid item xs={6}>
+            <Box sx={{ flexGrow: 1 }}
+              display='flex'
+              justifyContent='center'>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ color: 'white', display: 'block' }}
+              >Home</Button>
+            </Box>
+          </Grid>
+          <Grid
+            xs={3}
+            item
+            container
+            justifyContent="flex-end"
+            alignItems="center"
+            spacing={8}
+          >
+            <Grid item>
+              <Tooltip title="Help" arrow>
+                <IconButton aria-label="help">
+                  <HelpIcon>
+                  </HelpIcon>
+                </IconButton>
+              </Tooltip>
+            </Grid>
+            <Grid item>
+              <Tooltip title="Github" arrow>
+                <IconButton aria-label="github">
+                  <GithubIcon>
+                  </GithubIcon>
+                </IconButton>
+              </Tooltip>
+            </Grid>
+            <Grid item>
+              <Tooltip title="Settings" arrow>
+                <IconButton aria-label="settings">
+                  <SettingsIcon>
+                  </SettingsIcon>
+                </IconButton>
+              </Tooltip>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </Box>
   );
-};
-
+}
 export default MainNavbar;
