@@ -1,11 +1,9 @@
 import React from "react";
-
-import WidgetWrapper from "../../components/WidgetWrapper";
-import TaskWidget from "../../components/TaskWidget/TaskWidget";
-import SensorTaskWrapper from "../../components/SensorTaskWrapper/SensorTaskWrapper";
-
 import { Grid } from '@mui/material';
 
+import WidgetWrapper from "../../components/WidgetWrapper";
+import WidgetDivider from "../../components/WidgetDivider";
+import TaskWidget from "../../components/TaskWidget/TaskWidget";
 import SensorWidget from "../../components/SensorWidget/SensorWidget";
 
 const Home = () => {
@@ -31,6 +29,7 @@ const Home = () => {
         <Grid item>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
+            <WidgetDivider></WidgetDivider>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
@@ -55,6 +54,7 @@ const Home = () => {
         <Grid item>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
+            <WidgetDivider></WidgetDivider>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
