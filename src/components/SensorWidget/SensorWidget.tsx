@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Typography, IconButton, SvgIcon } from "@mui/material";
+import { Grid, Typography, IconButton, SvgIcon, Icon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { ReactComponent as ECIcon } from "../../icons/ec.svg";
+// import ECIcon from "../../icons/ec.svg";
+
 
 import SensorGraph from "./SensorGraph"
 
@@ -28,11 +29,14 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           item
           xs="auto">
           {/* TODO: add logic for icon selection here */}
-          <SvgIcon
+          <Icon >
+            <img src="../../icons/ec.svg" />
+          </Icon>
+          {/* <SvgIcon
             component={ECIcon}
             inheritViewBox
             fontSize="small"
-          />
+          /> */}
         </Grid>
         <Grid
           item
@@ -46,7 +50,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           xs="auto">
           <IconButton aria-label="settings">
             <OpenInNewIcon
-              color="light"
+              color="primary" //LIGHT
               fontSize="small"
             ></OpenInNewIcon>
           </IconButton>
@@ -70,7 +74,6 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           alignItems="center">
           <Grid
             item
-            align="center"
             marginBottom={-8}>
             <Typography
               variant="widgetStat"
@@ -80,7 +83,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           </Grid>
           <Grid
             item
-            align="center">
+            >
             <Typography
               variant="widgetStatLabel"
               color="text.light">mean</Typography>
@@ -95,7 +98,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           alignItems="center">
           <Grid
             item
-            align="center">
+            >
             <Typography
               variant="widgetStatLabel"
               color="text.light">hi </Typography>
@@ -105,7 +108,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           </Grid>
           <Grid
             item
-            align="center">
+            >
             <Typography
               variant="widgetStatLabel"
               color="text.light">lo </Typography>

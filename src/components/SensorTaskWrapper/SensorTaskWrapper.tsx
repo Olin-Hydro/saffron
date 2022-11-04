@@ -66,8 +66,7 @@ const SensorTaskWrapper = ({ sensorTaskType }) => {
       <p>{sensorTaskType}</p>
       <SensorWidget
       sensorType={sensorTaskType}
-      sensorLogs={sensorLogs}
-      mean={mean}
+      mean={parseInt(mean)}
       min={min}
       max={max}
       sensorState={sensorState}
@@ -76,7 +75,7 @@ const SensorTaskWrapper = ({ sensorTaskType }) => {
       <TaskWidget
         taskType={sensorTaskType}
         taskState={taskState}
-        enableSwitch={enableSwitch}
+        enableSwitch={parseInt(enableSwitch)}
         avgTime={avgTime}
         numCycles={numCycles}
       ></TaskWidget>

@@ -1,6 +1,11 @@
 import { createTheme } from '@mui/material/styles';
-
+import { TypographyOptions } from '@mui/material/styles/createTypography'
 // A custom theme for this app
+
+interface ExtendedTypographyOptions extends TypographyOptions {
+  widgetTitle: React.CSSProperties;
+}
+
 let theme = createTheme({
   palette: {
     type: 'light',
@@ -108,7 +113,7 @@ let theme = createTheme({
     widgetOnOffButton: {
       fontSize: 14,
     },
-  },
+  } as ExtendedTypographyOptions,
   shape: {
     borderRadius: 10,
   },

@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Container>
+      <p>hello world</p>
       <MainNavbar></MainNavbar>
       <Home></Home>
     </Container>
