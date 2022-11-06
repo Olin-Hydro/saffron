@@ -21,19 +21,19 @@ const Home = () => {
         direction="row"
         justifyContent="center"
         alignItems="stretch">
-        <Grid item>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item>
+        <Grid item order={{ md: 1 }}>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
             <WidgetDivider></WidgetDivider>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item>
+        <Grid item order={{ md: 0 }}>
+          <WidgetWrapper>
+            <SensorWidget></SensorWidget>
+          </WidgetWrapper>
+        </Grid>
+        <Grid item order={{ md: 2 }}>
           <WidgetWrapper>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
@@ -46,19 +46,19 @@ const Home = () => {
         direction="row"
         justifyContent="center"
         alignItems="stretch">
-        <Grid item>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item>
+        <Grid item order={{ md: 1 }}>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
             <WidgetDivider></WidgetDivider>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item>
+        <Grid item order={{ md: 0 }}>
+          <WidgetWrapper>
+            <SensorWidget></SensorWidget>
+          </WidgetWrapper>
+        </Grid>
+        <Grid item order={{ md: 2 }}>
           <WidgetWrapper>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
