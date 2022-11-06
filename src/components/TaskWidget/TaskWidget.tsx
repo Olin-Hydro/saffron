@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Typography, Stack, Grid, SvgIcon, IconButton } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
-// import { ReactComponent as ECIcon } from "../../icons/ec.svg";
+import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
 import TaskControlSwitch from "./TaskControlSwitch";
 import TaskStateIndicator from "./TaskStateIndicator";
@@ -21,11 +21,11 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
         >
           <Grid item xs="auto">
             {/* TODO: add logic for icon selection here */}
-            {/* <SvgIcon
+            <SvgIcon
               component={ECIcon}
               inheritViewBox
               fontSize="small"
-            /> */}
+            />
           </Grid>
           <Grid item xs>
             <Typography

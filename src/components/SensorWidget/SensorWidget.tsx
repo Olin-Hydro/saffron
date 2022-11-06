@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Grid, Typography, IconButton, SvgIcon, Icon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-// import ECIcon from "../../icons/ec.svg";
+import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
 
 import SensorGraph from "./SensorGraph"
@@ -29,14 +29,11 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           item
           xs="auto">
           {/* TODO: add logic for icon selection here */}
-          <Icon >
-            <img src="../../icons/ec.svg" />
-          </Icon>
-          {/* <SvgIcon
+          <SvgIcon
             component={ECIcon}
             inheritViewBox
             fontSize="small"
-          /> */}
+          />
         </Grid>
         <Grid
           item
