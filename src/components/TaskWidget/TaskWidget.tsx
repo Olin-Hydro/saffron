@@ -5,7 +5,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
 import TaskControlSwitch from "./TaskControlSwitch";
-import TaskStateIndicator from "./TaskStateIndicator.js";
+import TaskStateIndicator from "./TaskStateIndicator";
 
 const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {
 
@@ -49,8 +49,7 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
             taskState={taskState}
           </TaskStateIndicator>
           <TaskControlSwitch
-            enableSwitch={enableSwitch}>
-          </TaskControlSwitch>
+            enableSwitch={enableSwitch} />
         </Stack>
         {/* Numerical Stats */}
         <Stack gap={1}>

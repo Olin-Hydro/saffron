@@ -4,6 +4,7 @@ import { Grid, Typography, IconButton, SvgIcon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
+
 import SensorGraph from "./SensorGraph"
 
 const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) => {
@@ -71,7 +72,6 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           alignItems="center">
           <Grid
             item
-            align="center"
             marginBottom={-8}>
             <Typography
               variant="widgetStat"
@@ -81,7 +81,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           </Grid>
           <Grid
             item
-            align="center">
+            >
             <Typography
               variant="widgetStatLabel"
               color="text.light">mean</Typography>
@@ -96,7 +96,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           alignItems="center">
           <Grid
             item
-            align="center">
+            >
             <Typography
               variant="widgetStatLabel"
               color="text.light">hi </Typography>
@@ -106,7 +106,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           </Grid>
           <Grid
             item
-            align="center">
+            >
             <Typography
               variant="widgetStatLabel"
               color="text.light">lo </Typography>

@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 function App() {
   return (
     <Container>
+      <p>hello world</p>
       <MainNavbar></MainNavbar>
       <Home></Home>
     </Container>
