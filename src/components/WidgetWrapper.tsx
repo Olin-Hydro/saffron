@@ -15,7 +15,7 @@ const WidgetWrapper = ({ children }) => {
             container
             direction="row"
             justifyContent="space-between"
-            spacing={10}>
+            spacing={13}>
             {children}
           </Grid>
       </CardContent>

@@ -13,7 +13,8 @@ const Home = () => {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      spacing={10}>
+      spacing={10}
+      px={8.3}>
       <Grid
         container
         item
