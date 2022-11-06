@@ -8,13 +8,15 @@ import SensorWidget from "../../components/SensorWidget/SensorWidget";
 
 const Home = () => {
   return (
-    <Grid
+    <Grid 
       container
       direction="column"
       justifyContent="center"
       alignItems="center"
       spacing={10}
-      px={8.3}>
+      px={8.3}
+      maxWidth={{xs:"40em", md:"xl"}}
+      mx="auto">
       <Grid
         container
         item
