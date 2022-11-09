@@ -22,7 +22,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
       <Grid
         container
         justifyContent="space-between"
-        alignItems="center"
+        alignItems="flex-end"
         spacing={5}
       >
         <Grid
@@ -34,26 +34,24 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
             inheritViewBox
           />
         </Grid>
-        <Grid
-          item
-          xs>
-          <Typography
-            variant="widgetTitle"
-            color="text.primary">Title</Typography>
+        <Grid item xs>
+            <Typography
+              variant="widgetTitle"
+              color="text.primary"
+            >Title</Typography>
+          </Grid>
+          <Grid item xs="auto">
+            <IconButton
+              aria-label="settings"
+              sx={{ mx: '-.35em' }}
+            >
+              <OpenInNewIcon
+                color="light"
+                fontSize="small"
+              ></OpenInNewIcon>
+            </IconButton>
+          </Grid>
         </Grid>
-        <Grid
-          item
-          xs="auto">
-          <IconButton
-            aria-label="settings"
-            sx={{ margin: '-.35em' }}
-          >
-            <OpenInNewIcon
-              color="light"
-            ></OpenInNewIcon>
-          </IconButton>
-        </Grid>
-      </Grid>
       {/* Graph */}
       <SensorGraph sensorData={sensorData}></SensorGraph>
       {/* Numerical stats area */}

@@ -10,13 +10,13 @@ import TaskStateIndicator from "./TaskStateIndicator";
 const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {
 
   return (
-    <Grid item sx={{ height: '12em', width: '12em'}}>
+    <Grid item sx={{ height: '12em', width: '12em' }}>
       <Stack spacing={7}>
         {/* title */}
         <Grid
           container
           justifyContent="space-between"
-          alignItems="center"
+          alignItems="flex-end"
           spacing={5}
         >
           <Grid item xs="auto">
@@ -35,10 +35,11 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
           <Grid item xs="auto">
             <IconButton
               aria-label="settings"
-              sx={{ margin: '-.35em' }}
+              sx={{ mx: '-.35em' }}
             >
               <SettingsIcon
                 color="light"
+                fontSize="small"
               ></SettingsIcon>
             </IconButton>
           </Grid>
