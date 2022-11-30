@@ -24,6 +24,7 @@ const Home = () => {
         direction="row"
         justifyContent="center"
         alignItems="stretch">
+        {/* override column order so widgets are grouped correctly when stacked */}
         <Grid item order={{ md: 1 }}>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
