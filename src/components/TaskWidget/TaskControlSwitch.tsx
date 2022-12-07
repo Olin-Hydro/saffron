@@ -3,19 +3,24 @@ import PropTypes from "prop-types";
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Icon } from '@iconify/react';
 
-const TaskControlSwitch = ({enableSwitch}) => {  
+const TaskControlSwitch = ({ enableSwitch }) => {
 
   return (
-    <LoadingButton 
-      variant="outlined"
+    <LoadingButton
+      variant="switchOff"
       size="small"
-      style={{ borderWidth: 3 }}
+      fullWidth
       // TODO: loading spinner logic
-      // loading
       loadingPosition="start"
-      startIcon={<Icon icon="fontisto:power" height="14" />}>
-        {enableSwitch ? "Turn On" : "Turn Off"}
-      </LoadingButton>
+      startIcon={
+        <Icon
+          icon="fontisto:power"
+          height="14"
+          color="inherit"
+        />
+      }>
+      {enableSwitch ? "Turn On" : "Turn Off"}
+    </LoadingButton>
   );
 };
 

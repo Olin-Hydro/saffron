@@ -28,13 +28,16 @@ declare module '@mui/material/styles' {
     
 }
 
-declare module '@mui/material/Chip' {
-    interface ChipPropsVariantOverrides {
-        running: true;
-        idle: true;
-        warning: true;
-        error: true;
-        offline: true;
+declare module '@mui/material/Button' {
+    interface ButtonPropsVariantOverrides {
+        statusRunning: true;
+        statusIdle: true;
+        statusWarning: true;
+        statusError: true;
+        statusOffline: true;
+        switchOn: true;
+        switchOff: true;
+        switchDisabled: true;
     }
 }
 declare module '@mui/material/SvgIcon' {
