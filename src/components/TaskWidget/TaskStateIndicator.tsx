@@ -33,6 +33,7 @@ const TaskStateIndicator = ({taskState}) => {
   
   return (
     <Chip
+    style={{width: '100%'}}
     icon={statusIcon}
     label={statusText}
     variant="running"
