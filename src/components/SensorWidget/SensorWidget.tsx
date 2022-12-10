@@ -1,13 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import { Grid, Typography, IconButton, SvgIcon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
+import ReactComponent from 'react';
+import { ReactComponent as TempIcon } from "../../icons/temp.svg";
+import { ReactComponent as PHIcon } from "../../icons/ph.svg";
+import { ReactComponent as LevelIcon } from "../../icons/level.svg";
+import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
 import SensorGraph from "./SensorGraph"
 
 const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) => {
+  const [sensorTitle, setSensorTitle] = useState("Unknown");
+  const [sensorIcon, setSensorIcon] = useState();
+
+  const setSensorTypeProps = (sensorType: string) => {
+    switch (sensorType) {
+      case "temp":
+        setSensorIcon(TempIcon as any);
+        setSensorTitle("Temp");
+        break;
+      case "ph":
+        setSensorIcon(PHIcon as any);
+        setSensorTitle("PH");
+        break;
+      case "level":
+        setSensorIcon(LevelIcon as any);
+        setSensorTitle("Level");
+        break;
+      case "ec":
+        setSensorIcon(ECIcon as any);
+        setSensorTitle("EC");
+        break;
+      default:
+        setSensorTitle("Unknown");
+        break;
+    }
+  }
+
+  // useEffect with empty dependencies sets component props only when task state changes
+  useEffect(() => {
+    setSensorTypeProps(sensorType);
+  }, []);
 
   return (
     // Top level grid item is necessary here because this item fits into a grid
@@ -30,7 +65,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
         <Grid item xs="auto">
           {/* TODO: add logic for icon selection here */}
           <SvgIcon
-            component={ECIcon}
+            component={sensorIcon as any}
             inheritViewBox
           />
         </Grid>
@@ -38,7 +73,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
           <Typography
             variant="widgetTitle"
             color="text.primary"
-          >Title</Typography>
+          >{sensorTitle}</Typography>
         </Grid>
         <Grid item xs="auto">
           <IconButton
