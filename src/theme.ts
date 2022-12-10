@@ -61,9 +61,6 @@ let theme = createTheme({
       main: 'rgba(0, 0, 0, 0.13)',
     },
   },
-  // status: {
-    
-  // },
   typography: {
     fontFamily: [
       'Quicksand',
@@ -122,11 +119,21 @@ let theme = createTheme({
 
 theme = createTheme(theme, {
   components: {
+    MuiLoadingButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 7,
+          textTransform: 'uppercase',
+          fontWeight: 800,
+        },
+      },
+    },
     MuiChip: {
       styleOverrides: {
         root: {
-            borderRadius: 7,
-            textTransform: 'uppercase',
+          borderRadius: 7,
+          textTransform: 'uppercase',
+          fontWeight: 800,
         },
       },
       variants: [
@@ -135,7 +142,6 @@ theme = createTheme(theme, {
           style: {
             color: theme.palette.success.main,
             backgroundColor: theme.palette.success.light,
-            fontWeight: 600,
           },
         },
         {
@@ -143,7 +149,6 @@ theme = createTheme(theme, {
           style: {
             color: theme.palette.success.main,
             backgroundColor: theme.palette.success.light,
-            fontWeight: 600,
           },
         },
         {
@@ -151,7 +156,6 @@ theme = createTheme(theme, {
           style: {
             color: theme.palette.warning.main,
             backgroundColor: theme.palette.warning.light,
-            fontWeight: 600,
           },
         },
         {
@@ -159,7 +163,6 @@ theme = createTheme(theme, {
           style: {
             color: theme.palette.error.main,
             backgroundColor: theme.palette.error.light,
-            fontWeight: 600,
           },
         },
         {
@@ -167,7 +170,6 @@ theme = createTheme(theme, {
           style: {
             color: theme.palette.disabled.main,
             backgroundColor: theme.palette.disabled.light,
-            fontWeight: 600,
           },
         },
       ],
