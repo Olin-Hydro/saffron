@@ -25,7 +25,11 @@ declare module '@mui/material/styles' {
     interface Palette {
         disabled?: any;
     }
-    
+}
+
+declare module '@mui/material/Button' {
+    interface ButtonPropsVariantOverrides {
+    }
 }
 
 declare module '@mui/material/Chip' {

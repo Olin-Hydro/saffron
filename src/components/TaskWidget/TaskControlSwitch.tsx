@@ -10,6 +10,7 @@ const TaskControlSwitch = ({enableSwitch}) => {
       variant="outlined"
       size="small"
       style={{ borderWidth: 3 }}
+      fullWidth
       // TODO: loading spinner logic
       // loading
       loadingPosition="start"
