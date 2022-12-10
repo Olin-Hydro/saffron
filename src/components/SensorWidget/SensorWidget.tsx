@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import { Grid, Typography, IconButton, SvgIcon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
+import ReactComponent from 'react';
+import { ReactComponent as TempIcon } from "../../icons/temp.svg";
+import { ReactComponent as PHIcon } from "../../icons/ph.svg";
+import { ReactComponent as LevelIcon } from "../../icons/level.svg";
+import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
 import SensorGraph from "./SensorGraph"
 import { useSensorLogs } from "../../hooks/useSensorLogs";
@@ -13,6 +17,38 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
   const mean = sensorLogs.reduce((sum, reading) => sum + reading.value, 0)/sensorLogs.length;
   const min = Math.min(...sensorLogs.map(log => log.value))
   const max = Math.max(...sensorLogs.map(log => log.value))
+
+  const [sensorTitle, setSensorTitle] = useState("Unknown");
+  const [sensorIcon, setSensorIcon] = useState();
+
+  const setSensorTypeProps = (sensorType: string) => {
+    switch (sensorType) {
+      case "temp":
+        setSensorIcon(TempIcon as any);
+        setSensorTitle("Temp");
+        break;
+      case "ph":
+        setSensorIcon(PHIcon as any);
+        setSensorTitle("PH");
+        break;
+      case "level":
+        setSensorIcon(LevelIcon as any);
+        setSensorTitle("Level");
+        break;
+      case "ec":
+        setSensorIcon(ECIcon as any);
+        setSensorTitle("EC");
+        break;
+      default:
+        setSensorTitle("Unknown");
+        break;
+    }
+  }
+
+  // useEffect with empty dependencies sets component props only when task state changes
+  useEffect(() => {
+    setSensorTypeProps(sensorType);
+  }, []);
 
   return (
     // Top level grid item is necessary here because this item fits into a grid
@@ -35,7 +71,7 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
         <Grid item xs="auto">
           {/* TODO: add logic for icon selection here */}
           <SvgIcon
-            component={ECIcon}
+            component={sensorIcon as any}
             inheritViewBox
           />
         </Grid>
@@ -43,7 +79,7 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
           <Typography
             variant="widgetTitle"
             color="text.primary"
-          >Title</Typography>
+          >{sensorTitle}</Typography>
         </Grid>
         <Grid item xs="auto">
           <IconButton
@@ -84,7 +120,7 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
             <Typography
               variant="widgetStat"
               color="text.light"
-            >{typeof mean === "undefined" ? "--" : mean}</Typography>
+            >{mean || "--"}</Typography>
           </Grid>
           <Grid
             item
@@ -119,7 +155,7 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >{typeof max === "undefined" ? "--" : max}</Typography>
+              >{isFinite(max) ? max : "--"}</Typography>
             </Grid>
           </Grid>
           <Grid
@@ -138,7 +174,7 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >{typeof min === "undefined" ? "--" : min}</Typography>
+              >{isFinite(min) || "--"}</Typography>
             </Grid>
           </Grid>
         </Grid>
