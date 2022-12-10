@@ -14,7 +14,7 @@ import { useSensorLogs } from "../../hooks/useSensorLogs";
 
 const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
   const sensorLogs = useSensorLogs(sensorType, 24).sensorLogs;
-  const mean = sensorLogs.reduce((sum, reading) => sum + reading.value, 0)/sensorLogs.length;
+  const mean = sensorLogs.reduce((sum, reading) => sum + reading.value, 0) / sensorLogs.length;
   const min = Math.min(...sensorLogs.map(log => log.value))
   const max = Math.max(...sensorLogs.map(log => log.value))
 
@@ -94,7 +94,11 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
         </Grid>
       </Grid>
       {/* Graph */}
-      <SensorGraph sensorData={sensorData}></SensorGraph>
+      <Grid
+        item
+      >
+        <SensorGraph sensorData={sensorData}></SensorGraph>
+      </Grid>
       {/* Numerical stats area */}
       <Grid
         container

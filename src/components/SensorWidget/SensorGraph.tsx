@@ -58,14 +58,12 @@ const SensorGraph = ({ sensorData }) => {
     ],
   };
 
-
-
   return (
     <Box sx={{ backgroundColor: 'lightGreen.main', borderRadius: 1 }}>
       <Line options={options} data={data}
         width={170}
         height={60}
-      />;
+      />
     </Box>
   );
 };
