@@ -155,7 +155,7 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >{max || "--"}</Typography>
+              >{isFinite(max) ? max : "--"}</Typography>
             </Grid>
           </Grid>
           <Grid
@@ -174,7 +174,7 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >{min || "--"}</Typography>
+              >{isFinite(min) || "--"}</Typography>
             </Grid>
           </Grid>
         </Grid>
