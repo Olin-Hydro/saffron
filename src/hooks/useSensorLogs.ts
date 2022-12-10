@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import API from "../TaprootAPI";
 
 const initialLogs = {
-  sensorLogs: [],
+  sensorLogs: [] as LogReading[],
 };
 
-export const useSensorLogs = (type, prevHours) => {
+export const useSensorLogs = (type:string, prevHours:number) => {
   const [logs, setLogs] = useState(initialLogs);
-  const getSensorLogs = async (type, prevHours) => {
+  const getSensorLogs = async (type:string, prevHours:number) => {
     try {
       const logs = await API.getSensorLogs(type, prevHours);
       setLogs((prev) => ({
-        ...logs.data.data,
+        sensorLogs: logs,
       }));
     } catch (error) {
       console.log(error);

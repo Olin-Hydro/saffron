@@ -10,8 +10,14 @@ import { ReactComponent as LevelIcon } from "../../icons/level.svg";
 import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
 import SensorGraph from "./SensorGraph"
+import { useSensorLogs } from "../../hooks/useSensorLogs";
 
-const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) => {
+const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
+  const sensorLogs = useSensorLogs(sensorType, 24).sensorLogs;
+  const mean = sensorLogs.reduce((sum, reading) => sum + reading.value, 0)/sensorLogs.length;
+  const min = Math.min(...sensorLogs.map(log => log.value))
+  const max = Math.max(...sensorLogs.map(log => log.value))
+
   const [sensorTitle, setSensorTitle] = useState("Unknown");
   const [sensorIcon, setSensorIcon] = useState();
 
@@ -114,7 +120,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
             <Typography
               variant="widgetStat"
               color="text.light"
-            >{typeof mean === "undefined" ? "--" : mean}</Typography>
+            >{mean || "--"}</Typography>
           </Grid>
           <Grid
             item
@@ -149,7 +155,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >{typeof max === "undefined" ? "--" : max}</Typography>
+              >{max || "--"}</Typography>
             </Grid>
           </Grid>
           <Grid
@@ -168,7 +174,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >{typeof min === "undefined" ? "--" : min}</Typography>
+              >{min || "--"}</Typography>
             </Grid>
           </Grid>
         </Grid>
