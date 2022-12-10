@@ -91,7 +91,7 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
             <Typography
               variant="widgetStatSmall"
               color="text.light"
-            >#s</Typography>
+            >{typeof avgTime === "undefined" ? "--" : avgTime + "s"}</Typography>
           </Grid>
           <Grid item>
             <Typography
@@ -110,7 +110,7 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
             <Typography
               variant="widgetStatSmall"
               color="text.light"
-            >#</Typography>
+            >{typeof numCycles === "undefined" ? "--" : numCycles}</Typography>
           </Grid>
           <Grid item>
             <Typography

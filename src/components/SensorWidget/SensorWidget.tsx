@@ -79,7 +79,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
             <Typography
               variant="widgetStat"
               color="text.light"
-            >###</Typography>
+            >{typeof mean === "undefined" ? "--" : mean}</Typography>
           </Grid>
           <Grid
             item
@@ -114,7 +114,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >###</Typography>
+              >{typeof max === "undefined" ? "--" : max}</Typography>
             </Grid>
           </Grid>
           <Grid
@@ -133,7 +133,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
               <Typography
                 variant="widgetStatSmall"
                 color="text.light"
-              >###</Typography>
+              >{typeof min === "undefined" ? "--" : min}</Typography>
             </Grid>
           </Grid>
         </Grid>
