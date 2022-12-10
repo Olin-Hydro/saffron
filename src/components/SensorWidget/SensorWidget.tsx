@@ -6,8 +6,13 @@ import { ReactComponent as ECIcon } from "../../icons/ec.svg";
 
 
 import SensorGraph from "./SensorGraph"
+import { useSensorLogs } from "../../hooks/useSensorLogs";
 
-const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) => {
+const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
+  const sensorLogs = useSensorLogs(sensorType, 24).sensorLogs;
+  const mean = sensorLogs.reduce((sum, reading) => sum + reading.value, 0)/sensorLogs.length;
+  const min = Math.min(...sensorLogs.map(log => log.value))
+  const max = Math.max(...sensorLogs.map(log => log.value))
 
   return (
     // Top level grid item is necessary here because this item fits into a grid
@@ -76,7 +81,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
             <Typography
               variant="widgetStat"
               color="text.light">
-              ###
+              {mean}
             </Typography>
           </Grid>
           <Grid
@@ -102,7 +107,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
               color="text.light">hi </Typography>
             <Typography
               variant="widgetStatSmall"
-              color="text.light">###</Typography>
+              color="text.light">{max | 0}</Typography>
           </Grid>
           <Grid
             item
