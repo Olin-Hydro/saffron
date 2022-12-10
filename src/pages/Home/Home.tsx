@@ -8,12 +8,15 @@ import SensorWidget from "../../components/SensorWidget/SensorWidget";
 
 const Home = () => {
   return (
-    <Grid
+    <Grid 
       container
       direction="column"
       justifyContent="center"
       alignItems="center"
-      spacing={10}>
+      spacing={10}
+      px={8.3}
+      maxWidth={{xs:"40em", md:"xl"}}
+      mx="auto">
       <Grid
         container
         item
@@ -21,19 +24,20 @@ const Home = () => {
         direction="row"
         justifyContent="center"
         alignItems="stretch">
-        <Grid item>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item>
+        {/* override column order so widgets are grouped correctly when stacked */}
+        <Grid item order={{ md: 1 }}>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
             <WidgetDivider></WidgetDivider>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item>
+        <Grid item order={{ md: 0 }}>
+          <WidgetWrapper>
+            <SensorWidget></SensorWidget>
+          </WidgetWrapper>
+        </Grid>
+        <Grid item order={{ md: 2 }}>
           <WidgetWrapper>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
@@ -46,19 +50,19 @@ const Home = () => {
         direction="row"
         justifyContent="center"
         alignItems="stretch">
-        <Grid item>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item>
+        <Grid item order={{ md: 1 }}>
           <WidgetWrapper>
             <SensorWidget></SensorWidget>
             <WidgetDivider></WidgetDivider>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>
         </Grid>
-        <Grid item>
+        <Grid item order={{ md: 0 }}>
+          <WidgetWrapper>
+            <SensorWidget></SensorWidget>
+          </WidgetWrapper>
+        </Grid>
+        <Grid item order={{ md: 2 }}>
           <WidgetWrapper>
             <TaskWidget></TaskWidget>
           </WidgetWrapper>

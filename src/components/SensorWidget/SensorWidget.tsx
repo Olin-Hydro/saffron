@@ -22,39 +22,37 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
       direction="column"
       justifyContent="space-between"
       alignItems="stretch"
-      sx={{ height: '12em', width: '12em' }}>
+      sx={{ height: '13em', width: '13em' }}
+    >
       {/* title */}
       <Grid
         container
         justifyContent="space-between"
-        alignItems="center"
+        alignItems="flex-end"
         spacing={5}
+        mt={-7}
       >
-        <Grid
-          item
-          xs="auto">
+        <Grid item xs="auto">
           {/* TODO: add logic for icon selection here */}
           <SvgIcon
             component={ECIcon}
             inheritViewBox
           />
         </Grid>
-        <Grid
-          item
-          xs>
+        <Grid item xs>
           <Typography
             variant="widgetTitle"
-            color="text.primary">Title</Typography>
+            color="text.primary"
+          >Title</Typography>
         </Grid>
-        <Grid
-          item
-          xs="auto">
+        <Grid item xs="auto">
           <IconButton
             aria-label="settings"
-            sx={{ margin: '-.35em' }}
+            sx={{ mx: '-.35em' }}
           >
             <OpenInNewIcon
               color="light"
+              fontSize="small"
             ></OpenInNewIcon>
           </IconButton>
         </Grid>
@@ -66,63 +64,84 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
         container
         item
         direction="row"
-        justifyContent="space-evenly"
+        justifyContent="center"
         alignItems="flex-end"
-        spacing={5}>
+        spacing={5}
+      >
         {/* Avg stat */}
         <Grid
+          container
           item
           direction="column"
           justifyContent="flex-end"
-          alignItems="center">
+          alignItems="center"
+          xs={6}
+        >
           <Grid
             item
-            marginBottom={-8}>
+            marginBottom={-9}
+          >
             <Typography
               variant="widgetStat"
-              color="text.light">
-              {mean}
-            </Typography>
+              color="text.light"
+            >{typeof mean === "undefined" ? "--" : mean}</Typography>
           </Grid>
           <Grid
             item
-            >
+          >
             <Typography
               variant="widgetStatLabel"
-              color="text.light">mean</Typography>
+              color="text.light"
+              align="center">mean</Typography>
           </Grid>
-          {/* </Grid> */}
         </Grid>
         {/* hi / lo stats */}
         <Grid
           item
+          container
+          xs={6}
           direction="column"
           justifyContent="flex-end"
           alignItems="center">
           <Grid
             item
-            >
-            <Typography
-              variant="widgetStatLabel"
-              color="text.light">hi </Typography>
-            <Typography
-              variant="widgetStatSmall"
-              color="text.light">{max | 0}</Typography>
+            container
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+          >
+            <Grid item>
+              <Typography
+                variant="widgetStatLabel"
+                color="text.light">hi</Typography>
+            </Grid>
+            <Grid item my={-10}>
+              <Typography
+                variant="widgetStatSmall"
+                color="text.light"
+              >{typeof max === "undefined" ? "--" : max}</Typography>
+            </Grid>
           </Grid>
           <Grid
             item
-            >
-            <Typography
-              variant="widgetStatLabel"
-              color="text.light">lo </Typography>
-            {/* To-do update the widgetStatSmall to have same text baseline as label */}
-            <Typography
-              variant="widgetStatSmall"
-              color="text.light"
-            >###</Typography>
+            container
+            justifyContent="center"
+            alignItems="center"
+            spacing={2}
+          >
+            <Grid item>
+              <Typography
+                variant="widgetStatLabel"
+                color="text.light">lo</Typography>
+            </Grid>
+            <Grid item my={-10}>
+              <Typography
+                variant="widgetStatSmall"
+                color="text.light"
+              >{typeof min === "undefined" ? "--" : min}</Typography>
+            </Grid>
           </Grid>
         </Grid>
-        {/* </Grid> */}
       </Grid>
     </Grid>
   );
