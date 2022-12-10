@@ -107,7 +107,11 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
         </Grid>
       </Grid>
       {/* Graph */}
-      <SensorGraph sensorData={sensorData}></SensorGraph>
+      <Grid
+        item
+      >
+        <SensorGraph sensorData={sensorData}></SensorGraph>
+      </Grid>
       {/* Numerical stats area */}
       <Grid
         container
