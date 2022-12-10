@@ -122,72 +122,53 @@ let theme = createTheme({
 
 theme = createTheme(theme, {
   components: {
-    MuiLoadingButton: {
+    MuiChip: {
       styleOverrides: {
         root: {
             borderRadius: 7,
             textTransform: 'uppercase',
-            fontWeight: 800,
         },
       },
       variants: [
         {
-          props: { variant: 'statusRunning' },
+          props: { variant: 'running' },
           style: {
             color: theme.palette.success.main,
             backgroundColor: theme.palette.success.light,
+            fontWeight: 600,
           },
         },
         {
-          props: { variant: 'statusIdle' },
+          props: { variant: 'idle' },
           style: {
             color: theme.palette.success.main,
             backgroundColor: theme.palette.success.light,
+            fontWeight: 600,
           },
         },
         {
-          props: { variant: 'statusWarning' },
+          props: { variant: 'warning' },
           style: {
             color: theme.palette.warning.main,
             backgroundColor: theme.palette.warning.light,
+            fontWeight: 600,
           },
         },
         {
-          props: { variant: 'statusError' },
+          props: { variant: 'error' },
           style: {
             color: theme.palette.error.main,
             backgroundColor: theme.palette.error.light,
+            fontWeight: 600,
           },
         },
         {
-          props: { variant: 'statusOffline' },
+          props: { variant: 'offline' },
           style: {
             color: theme.palette.disabled.main,
             backgroundColor: theme.palette.disabled.light,
+            fontWeight: 600,
           },
-        },
-        {
-          props: { variant: 'switchOn' },
-          style: {
-            color: theme.palette.primary.light,
-            border: "solid",
-          },
-        },
-        {
-          props: { variant: 'switchOff' },
-          style: {
-            color: theme.palette.primary.light,
-            border: "solid",
-          },
-        },
-        {
-          props: { variant: 'switchDisabled' },
-          style: {
-            color: theme.palette.disabled.main,
-            border: "solid",
-            borderColor: theme.palette.disabled.light,
-          },
-          disabled: true,
         },
       ],
     },

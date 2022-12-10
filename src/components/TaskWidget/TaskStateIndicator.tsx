@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import LoadingButton from '@mui/lab/LoadingButton';
+import { Chip } from "@mui/material";
 import { Icon } from '@iconify/react';
 
 const TaskStateIndicator = ({taskState}) => {  
@@ -27,22 +27,16 @@ const TaskStateIndicator = ({taskState}) => {
   //   }
   // }
   
-  let statusIcon = <Icon icon="fa:circle-o" height="14" color="inherit"/>
+  // let statusIcon = <Icon icon="fa:circle" height="14" />
+  let statusIcon = <Icon icon="fa:circle-o" height="14" style={{color: "rgba(0,0,0,.2)"}}/>
   let statusText = "running"
   
   return (
-    <LoadingButton 
-      variant="statusRunning"
-      disabled={true}
-      size="small"
-      fullWidth
-      // TODO: loading spinner logic
-      // loading
-      loadingPosition="start"
-      startIcon={statusIcon}
-      >
-      {statusText}
-      </LoadingButton>
+    <Chip
+    icon={statusIcon}
+    label={statusText}
+    variant="running"
+    />
   );
 };
 
@@ -51,5 +45,3 @@ TaskStateIndicator.propTypes = {
 };
 
 export default TaskStateIndicator;
-
-
