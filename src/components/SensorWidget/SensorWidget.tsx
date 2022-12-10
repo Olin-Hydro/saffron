@@ -93,6 +93,7 @@ const SensorWidget = ({ sensorType, sensorData, mean, min, max, sensorState }) =
         {/* hi / lo stats */}
         <Grid
           item
+          container
           xs={6}
           direction="column"
           justifyContent="flex-end"
