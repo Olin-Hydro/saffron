@@ -9,45 +9,59 @@ import { ReactComponent as PHIcon } from "../../icons/sensors/ph.svg";
 import { ReactComponent as LevelIcon } from "../../icons/sensors/level.svg";
 import { ReactComponent as ECIcon } from "../../icons/sensors/ec.svg";
 
+import { ReactComponent as BlankUnitIcon } from "../../icons/units/unit-blank.svg";
+import { ReactComponent as FUnitIcon } from "../../icons/units/unit-F.svg"; 
+import { ReactComponent as CUnitIcon } from "../../icons/units/unit-C.svg";
+import { ReactComponent as LevelUnitIcon } from "../../icons/units/unit-in-h2o.svg";
+import { ReactComponent as ECUnitIcon } from "../../icons/units/unit-ms-cm.svg";
+import { ReactComponent as PHUnitIcon } from "../../icons/units/unit-ph.svg";
+
 import SensorGraph from "./SensorGraph"
 import { useSensorLogs } from "../../hooks/useSensorLogs";
 
 const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
   const sensorLogs = useSensorLogs(sensorType, 24).sensorLogs;
-  const mean = sensorLogs.reduce((sum, reading) => sum + reading.value, 0)/sensorLogs.length;
+  const mean = sensorLogs.reduce((sum, reading) => sum + reading.value, 0) / sensorLogs.length;
   const min = Math.min(...sensorLogs.map(log => log.value))
   const max = Math.max(...sensorLogs.map(log => log.value))
 
   const [sensorTitle, setSensorTitle] = useState("Unknown");
   const [sensorIcon, setSensorIcon] = useState();
+  const [sensorUnitIcon, setSensorUnitIcon] = useState();
 
   const setSensorTypeProps = (sensorType: string) => {
     switch (sensorType) {
       case "temp":
+        // TODO: add Fahrenheight conversion
         setSensorIcon(TempIcon as any);
         setSensorTitle("Temp");
+        setSensorUnitIcon(CUnitIcon as any)
         break;
       case "ph":
         setSensorIcon(PHIcon as any);
         setSensorTitle("PH");
+        setSensorUnitIcon(PHUnitIcon as any)
         break;
       case "level":
         setSensorIcon(LevelIcon as any);
         setSensorTitle("Level");
+        setSensorUnitIcon(LevelUnitIcon as any)
         break;
       case "ec":
         setSensorIcon(ECIcon as any);
         setSensorTitle("EC");
+        setSensorUnitIcon(ECUnitIcon as any)
         break;
       default:
         setSensorTitle("Unknown");
+        setSensorUnitIcon(BlankUnitIcon as any)
         break;
     }
   }
 
   // useEffect with empty dependencies sets component props only when task state changes
   useEffect(() => {
-    setSensorTypeProps(sensorType);
+    setSensorTypeProps("");
   }, []);
 
   return (
@@ -69,7 +83,6 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
         mt={-7}
       >
         <Grid item xs="auto">
-          {/* TODO: add logic for icon selection here */}
           <SvgIcon
             component={sensorIcon as any}
             inheritViewBox
@@ -115,12 +128,24 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
         >
           <Grid
             item
+            container
             marginBottom={-9}
+            justifyContent="center"
+            alignItems="baseline"
           >
+            <Grid
+            item>
             <Typography
               variant="widgetStat"
               color="text.light"
             >{mean || "--"}</Typography>
+            </Grid>
+            <Grid item>
+              <SvgIcon
+                component={sensorUnitIcon as any}
+                inheritViewBox
+              />
+            </Grid>
           </Grid>
           <Grid
             item
@@ -157,6 +182,12 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
                 color="text.light"
               >{isFinite(max) ? max : "--"}</Typography>
             </Grid>
+            <Grid item>
+              <SvgIcon
+                component={sensorUnitIcon as any}
+                inheritViewBox
+              />
+            </Grid>
           </Grid>
           <Grid
             item
@@ -175,6 +206,12 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
                 variant="widgetStatSmall"
                 color="text.light"
               >{isFinite(min) || "--"}</Typography>
+            </Grid>
+            <Grid item>
+              <SvgIcon
+                component={sensorUnitIcon as any}
+                inheritViewBox
+              />
             </Grid>
           </Grid>
         </Grid>
