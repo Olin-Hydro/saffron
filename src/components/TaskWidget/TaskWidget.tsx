@@ -10,7 +10,7 @@ import { ReactComponent as LightIcon } from "../../icons/tasks/light.svg";
 import TaskControlSwitch from "./TaskControlSwitch";
 import TaskStateIndicator from "./TaskStateIndicator";
 
-const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {
+const TaskWidget = ({ taskType, taskState, switchState, avgTime, numCycles }) => {
   const [taskIcon, setTaskIcon] = useState();
   const [taskTitle, setTaskTitle] = useState("Unknown");
   
@@ -100,7 +100,9 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
         </Grid>
         <Grid item>
           <TaskControlSwitch
-            enableSwitch={enableSwitch} />
+            switchState={switchState}
+            enableSwitch={taskState == "offline"}
+            />
         </Grid>
       </Grid>
       {/* Numerical Stats */}
@@ -157,6 +159,7 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
 TaskWidget.propTypes = {
   taskType: PropTypes.string,
   taskState: PropTypes.string,
+  switchState: PropTypes.number,
   enableSwitch: PropTypes.number,
   avgTime: PropTypes.number,
   numCycles: PropTypes.number,

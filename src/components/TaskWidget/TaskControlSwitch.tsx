@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Icon } from '@iconify/react';
 
-const TaskControlSwitch = ({enableSwitch}) => {  
+// when switchState is true, show "Turn Off" text
+// When enableSwitch is false, disable switch
+const TaskControlSwitch = ({ switchState, enableSwitch }) => {
 
   return (
-    <LoadingButton 
+    <LoadingButton
       variant="outlined"
       size="small"
       style={{ borderWidth: 3 }}
@@ -14,14 +16,16 @@ const TaskControlSwitch = ({enableSwitch}) => {
       // TODO: loading spinner logic
       // loading
       loadingPosition="start"
-      startIcon={<Icon icon="fontisto:power" height="14" />}>
-        {enableSwitch ? "Turn On" : "Turn Off"}
-      </LoadingButton>
+      startIcon={<Icon icon="fontisto:power" height="14" />}
+      disabled={enableSwitch}
+    >
+      {switchState ? "Turn Off" : "Turn On"}
+    </LoadingButton>
   );
 };
 
 TaskControlSwitch.propTypes = {
-  enableSwitch: PropTypes.string,
+  enableSwitch: PropTypes.bool,
 };
 
 export default TaskControlSwitch;
