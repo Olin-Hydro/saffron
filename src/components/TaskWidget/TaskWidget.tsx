@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import { Typography, Grid, SvgIcon, IconButton } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
-import { ReactComponent as ECIcon } from "../../icons/ec.svg";
+
+import { ReactComponent as PumpIcon } from "../../icons/pump.svg";
+import { ReactComponent as DispenserIcon } from "../../icons/dispenser.svg";
+import { ReactComponent as LightIcon } from "../../icons/light.svg";
 
 import TaskControlSwitch from "./TaskControlSwitch";
 import TaskStateIndicator from "./TaskStateIndicator";
 
 const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) => {
+  const [taskIcon, setTaskIcon] = useState();
+  const [taskTitle, setTaskTitle] = useState("Unknown");
+  
+  // set props for task type (card title and icon)
+  const setTaskTypeProps = (sensorType: string) => {
+    switch (sensorType) {
+      case "pump":
+        setTaskIcon(PumpIcon as any);
+        setTaskTitle("Pump");
+        break;
+      case "dispenser":
+        setTaskIcon(DispenserIcon as any);
+        setTaskTitle("Dispenser");
+        break;
+      case "light":
+        setTaskIcon(LightIcon as any);
+        setTaskTitle("Light");
+        break;
+      default:
+        setTaskTitle("Unknown");
+        break;
+    }
+  }
+
+  // useEffect with empty dependencies sets component props only when task state changes
+  useEffect(() => {
+    setTaskTypeProps(taskType);
+  }, []);
 
   return (
     // Top level grid item is necessary here because this item fits into a grid
@@ -31,7 +62,7 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
         <Grid item xs="auto">
           {/* TODO: add logic for icon selection here */}
           <SvgIcon
-            component={ECIcon}
+            component={taskIcon as any}
             inheritViewBox
           />
         </Grid>
@@ -39,7 +70,7 @@ const TaskWidget = ({ taskType, taskState, enableSwitch, avgTime, numCycles }) =
           <Typography
             variant="widgetTitle"
             color="text.primary"
-          >Title</Typography>
+          >{taskTitle}</Typography>
         </Grid>
         <Grid item xs="auto">
           <IconButton
