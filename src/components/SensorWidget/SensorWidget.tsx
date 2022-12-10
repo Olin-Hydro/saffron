@@ -4,10 +4,10 @@ import { Grid, Typography, IconButton, SvgIcon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import ReactComponent from 'react';
-import { ReactComponent as TempIcon } from "../../icons/temp.svg";
-import { ReactComponent as PHIcon } from "../../icons/ph.svg";
-import { ReactComponent as LevelIcon } from "../../icons/level.svg";
-import { ReactComponent as ECIcon } from "../../icons/ec.svg";
+import { ReactComponent as TempIcon } from "../../icons/sensors/temp.svg";
+import { ReactComponent as PHIcon } from "../../icons/sensors/ph.svg";
+import { ReactComponent as LevelIcon } from "../../icons/sensors/level.svg";
+import { ReactComponent as ECIcon } from "../../icons/sensors/ec.svg";
 
 import SensorGraph from "./SensorGraph"
 import { useSensorLogs } from "../../hooks/useSensorLogs";

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Typography, Grid, SvgIcon, IconButton } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import { ReactComponent as PumpIcon } from "../../icons/pump.svg";
-import { ReactComponent as DispenserIcon } from "../../icons/dispenser.svg";
-import { ReactComponent as LightIcon } from "../../icons/light.svg";
+import { ReactComponent as PumpIcon } from "../../icons/tasks/pump.svg";
+import { ReactComponent as DispenserIcon } from "../../icons/tasks/dispenser.svg";
+import { ReactComponent as LightIcon } from "../../icons/tasks/light.svg";
 
 import TaskControlSwitch from "./TaskControlSwitch";
 import TaskStateIndicator from "./TaskStateIndicator";

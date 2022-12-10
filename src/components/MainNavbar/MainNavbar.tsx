@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box, Button, Grid, IconButton, Toolbar, Tooltip } from '@mui/material';
 
 // import icons as components
-import { ReactComponent as LogoMonoWhite } from "../../icons/logo-mono-white.svg";
+import { ReactComponent as LogoMonoWhite } from "../../icons/global/logo-mono-white.svg";
 import { ReactComponent as HelpIcon } from "../../icons/navbar/help.svg";
 import { ReactComponent as GithubIcon } from "../../icons/navbar/github.svg";
 import { ReactComponent as SettingsIcon } from "../../icons/navbar/settings.svg";
