@@ -12,7 +12,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 
 ChartJS.register(
   CategoryScale,
@@ -34,26 +33,34 @@ const SensorGraph = ({ sensorData }) => {
       },
       title: {
         display: false,
-        text: 'Chart.js Line Chart',
       },
     },
     scales: {
       xAxis: {
-        display: false //this will remove only the label
+        display: false // this will remove only the label
+      },
+      yAxis: {
+        display: true
       }
     }
   };
 
-  const labels = ['', '', '', '', '', '', '', '', '', '', ''];
+  const numPoints = sensorData.length
+  let labels = Array(numPoints).fill('')
+  labels[0] = '24H'
+  labels[(numPoints / 2 >> 0)] = '12H'
+  labels[numPoints - 1] = '0H'
   const data = {
     labels,
     datasets: [
       {
         label: '',
         xAxisID: 'xAxis',
-        data: labels.map(() => faker.datatype.number({ min: 20, max: 50 })),
+        yAxisID: 'yAxis',
+        data: sensorData,
         borderColor: '#2DD886',
         backgroundColor: '#2DD886',
+        tension: 0.3
       },
     ],
   };

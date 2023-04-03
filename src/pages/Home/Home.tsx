@@ -1,73 +1,23 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Grid } from '@mui/material';
 
-import WidgetWrapper from "../../components/WidgetWrapper";
-import WidgetDivider from "../../components/WidgetDivider";
-import TaskWidget from "../../components/TaskWidget/TaskWidget";
-import SensorWidget from "../../components/SensorWidget/SensorWidget";
+import { useGardens } from "../../hooks/useGardens"
+
+import Dashboard from "../../components/Dashboard/Dashboard";
 
 const Home = () => {
+  const gardens = useGardens()
+  const first_garden = gardens.data[0]
+  let current_garden_id = ""
+  try {
+    current_garden_id = first_garden._id
+  } catch (error) {
+  }
+
   return (
-    <Grid 
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      spacing={10}
-      px={8.3}
-      maxWidth={{xs:"40em", md:"xl"}}
-      mx="auto">
-      <Grid
-        container
-        item
-        spacing={10}
-        direction="row"
-        justifyContent="center"
-        alignItems="stretch">
-        {/* override column order so widgets are grouped correctly when stacked */}
-        <Grid item order={{ md: 1 }}>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-            <WidgetDivider></WidgetDivider>
-            <TaskWidget></TaskWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item order={{ md: 0 }}>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item order={{ md: 2 }}>
-          <WidgetWrapper>
-            <TaskWidget></TaskWidget>
-          </WidgetWrapper>
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        item
-        spacing={10}
-        direction="row"
-        justifyContent="center"
-        alignItems="stretch">
-        <Grid item order={{ md: 1 }}>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-            <WidgetDivider></WidgetDivider>
-            <TaskWidget></TaskWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item order={{ md: 0 }}>
-          <WidgetWrapper>
-            <SensorWidget></SensorWidget>
-          </WidgetWrapper>
-        </Grid>
-        <Grid item order={{ md: 2 }}>
-          <WidgetWrapper>
-            <TaskWidget></TaskWidget>
-          </WidgetWrapper>
-        </Grid>
-      </Grid>
+    <Grid>
+      {<Dashboard garden_id={current_garden_id} />}
     </Grid>
   );
 };

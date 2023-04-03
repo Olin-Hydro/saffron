@@ -13,11 +13,11 @@ import TaskStateIndicator from "./TaskStateIndicator";
 const TaskWidget = ({ taskType, taskState, switchState, avgTime, numCycles }) => {
   const [taskIcon, setTaskIcon] = useState();
   const [taskTitle, setTaskTitle] = useState("Unknown");
-  
+
   // set props for task type (card title and icon)
   const setTaskTypeProps = (sensorType: string) => {
     switch (sensorType) {
-      case "pump":
+      case "water pump":
         setTaskIcon(PumpIcon as any);
         setTaskTitle("Pump");
         break;
@@ -102,7 +102,7 @@ const TaskWidget = ({ taskType, taskState, switchState, avgTime, numCycles }) =>
           <TaskControlSwitch
             switchState={switchState}
             enableSwitch={taskState == "offline"}
-            />
+          />
         </Grid>
       </Grid>
       {/* Numerical Stats */}
