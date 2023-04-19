@@ -10,34 +10,28 @@ import { ReactComponent as LightIcon } from "../../icons/tasks/light.svg";
 import TaskControlSwitch from "./TaskControlSwitch";
 import TaskStateIndicator from "./TaskStateIndicator";
 
-const TaskWidget = ({ taskType, taskState, switchState, avgTime, numCycles }) => {
+const TaskWidget = ({ taskName, taskType, taskState, switchState, avgTime, numCycles }) => {
   const [taskIcon, setTaskIcon] = useState();
   const [taskTitle, setTaskTitle] = useState("Unknown");
 
   // set props for task type (card title and icon)
-  const setTaskTypeProps = (sensorType: string) => {
-    switch (sensorType) {
-      case "water pump":
+  // useEffect with empty dependencies means it only updates at start
+  useEffect(() => {
+    setTaskTitle(taskName);
+    switch (taskType) {
+      case "pump":
         setTaskIcon(PumpIcon as any);
-        setTaskTitle("Pump");
         break;
       case "dispenser":
         setTaskIcon(DispenserIcon as any);
-        setTaskTitle("Dispenser");
         break;
       case "light":
         setTaskIcon(LightIcon as any);
-        setTaskTitle("Light");
         break;
       default:
         setTaskTitle("Unknown");
         break;
     }
-  }
-
-  // useEffect with empty dependencies sets component props only when task state changes
-  useEffect(() => {
-    setTaskTypeProps(taskType);
   }, []);
 
   return (

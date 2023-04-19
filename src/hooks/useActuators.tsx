@@ -127,7 +127,10 @@ export const useScheduledActuatorWidgets = (scheduledActuators: ScheduledActuato
           return (
             <Grid key={currentScheduledActuator._id} item order={{ md: 2 }}>
               <WidgetWrapper>
-                <TaskWidget taskType={currentScheduledActuator.name} taskState={"online"} />
+                <TaskWidget
+                  taskName={currentScheduledActuator.name}
+                  taskType={currentScheduledActuator.type}
+                  taskState={"online"} />
               </WidgetWrapper>
             </Grid>
           )
@@ -159,7 +162,11 @@ export const useReactiveActuatorWidgets = (reactiveActuators: ReactiveActuator[]
           return (
             <Grid key={currentReactiveActuator._id} item order={{ md: 2 }}>
               <WidgetWrapper>
-                <TaskWidget taskType={currentReactiveActuator.name} taskState={"online"} />
+                <TaskWidget
+                  taskName={currentReactiveActuator.name}
+                  taskType={currentReactiveActuator.type}
+                  taskState={"online"}
+                />
               </WidgetWrapper>
             </Grid>
           )

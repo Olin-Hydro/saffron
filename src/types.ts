@@ -67,6 +67,7 @@ interface ReactiveAction {
 interface ReactiveActuator {
     _id: string;
     name: string;
+    type: string;
     sensor_id: string;
     created_at: string;
     updated_at: string;
@@ -101,6 +102,7 @@ interface ScheduledAction {
 interface ScheduledActuator {
     _id: string;
     name: string;
+    type: string;
     garden_id: string;
     created_at: string;
     updated_at: string;
@@ -109,6 +111,7 @@ interface ScheduledActuator {
 interface Sensor {
     _id: string;
     name: string;
+    type: string;
     garden_id: string;
     created_at: string;
     updated_at: string;

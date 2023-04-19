@@ -78,7 +78,11 @@ export const useSensorWidgets = (sensors: Sensor[], sensorsData: Reading[][]) =>
             data.push(
               <Grid key={currentSensor._id} item order={{ md: 2 }}>
                 <WidgetWrapper>
-                  <SensorWidget sensorType={currentSensor.name} sensorData={singleSensorData} />
+                  <SensorWidget
+                    sensorName={currentSensor.name}
+                    sensorType={currentSensor.type}
+                    sensorData={singleSensorData}
+                  />
                 </WidgetWrapper>
               </Grid>
             )

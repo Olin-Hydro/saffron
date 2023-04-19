@@ -17,7 +17,7 @@ import { ReactComponent as PHUnitIcon } from "../../icons/units/unit-ph.svg";
 
 import SensorGraph from "./SensorGraph"
 
-const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
+const SensorWidget = ({ sensorName, sensorType, sensorData, sensorState }) => {
   const values = sensorData.map(reading => reading.value)
   // To do: reading precision should depend on the sensorType
   const mean = sensorData.reduce((sum, reading) => sum + reading.value, 0) / sensorData.length;
@@ -30,42 +30,32 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
   const minString = isFinite(min) ? min.toPrecision(2) : "--"
 
   const [sensorTitle, setSensorTitle] = useState("Unknown");
-  const [sensorIcon, setSensorIcon] = useState();
+  const [sensorIcon, setSensorIcon] = useState(); // TODO: add default icon
+
   const [sensorUnitIcon, setSensorUnitIcon] = useState();
 
-  const setSensorTypeProps = (sensorType: string) => {
+  // useEffect with empty dependencies sets component props only when task state changes
+  useEffect(() => {
+    setSensorTitle(sensorName);
+
     switch (sensorType) {
       case "temp":
         // TODO: add Fahrenheight conversion
         setSensorIcon(TempIcon as any);
-        setSensorTitle("Temp");
         setSensorUnitIcon(CUnitIcon as any)
         break;
-      case "pH":
+      case "ph":
         setSensorIcon(PHIcon as any);
-        setSensorTitle("PH");
         setSensorUnitIcon(PHUnitIcon as any)
-        break;
-      case "level":
-        setSensorIcon(LevelIcon as any);
-        setSensorTitle("Level");
-        setSensorUnitIcon(LevelUnitIcon as any)
         break;
       case "ec":
         setSensorIcon(ECIcon as any);
-        setSensorTitle("EC");
         setSensorUnitIcon(ECUnitIcon as any)
         break;
       default:
-        setSensorTitle("Unknown");
         setSensorUnitIcon(BlankUnitIcon as any)
         break;
     }
-  }
-
-  // useEffect with empty dependencies sets component props only when task state changes
-  useEffect(() => {
-    setSensorTypeProps(sensorType);
   }, []);
 
   return (
