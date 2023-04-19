@@ -82,6 +82,7 @@ export const useSensorWidgets = (sensors: Sensor[], sensorsData: Reading[][]) =>
                     sensorName={currentSensor.name}
                     sensorType={currentSensor.type}
                     sensorData={singleSensorData}
+                    sensorState={"offline"} // TODO: compute or pull from API
                   />
                 </WidgetWrapper>
               </Grid>

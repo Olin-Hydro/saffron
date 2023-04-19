@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from "prop-types";
 import { Chip } from "@mui/material";
 import { Icon } from '@iconify/react';
 
@@ -53,10 +52,6 @@ const TaskStateIndicator = ({ taskState }) => {
       icon={icon}
     />
   );
-};
-
-TaskStateIndicator.propTypes = {
-  taskState: PropTypes.string,
 };
 
 export default TaskStateIndicator;

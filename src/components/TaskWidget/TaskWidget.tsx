@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from "prop-types";
 import { Typography, Grid, SvgIcon, IconButton } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -88,9 +87,9 @@ const TaskWidget = ({ taskName, taskType, taskState, switchState, avgTime, numCy
         spacing={5}
       >
         <Grid item>
-          <TaskStateIndicator>
+          <TaskStateIndicator
             taskState={taskState}
-          </TaskStateIndicator>
+          />
         </Grid>
         <Grid item>
           <TaskControlSwitch
@@ -148,15 +147,6 @@ const TaskWidget = ({ taskName, taskType, taskState, switchState, avgTime, numCy
       </Grid>
     </Grid>
   );
-};
-
-TaskWidget.propTypes = {
-  taskType: PropTypes.string,
-  taskState: PropTypes.string,
-  switchState: PropTypes.number,
-  enableSwitch: PropTypes.number,
-  avgTime: PropTypes.number,
-  numCycles: PropTypes.number,
 };
 
 export default TaskWidget;

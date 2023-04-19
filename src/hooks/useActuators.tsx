@@ -130,7 +130,11 @@ export const useScheduledActuatorWidgets = (scheduledActuators: ScheduledActuato
                 <TaskWidget
                   taskName={currentScheduledActuator.name}
                   taskType={currentScheduledActuator.type}
-                  taskState={"online"} />
+                  taskState={"online"}
+                  switchState={false}
+                  avgTime={undefined}
+                  numCycles={undefined}
+                />
               </WidgetWrapper>
             </Grid>
           )
@@ -166,6 +170,9 @@ export const useReactiveActuatorWidgets = (reactiveActuators: ReactiveActuator[]
                   taskName={currentReactiveActuator.name}
                   taskType={currentReactiveActuator.type}
                   taskState={"online"}
+                  switchState={false}
+                  avgTime={undefined}
+                  numCycles={undefined}
                 />
               </WidgetWrapper>
             </Grid>

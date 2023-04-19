@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from "prop-types";
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Icon } from '@iconify/react';
 
@@ -22,10 +21,6 @@ const TaskControlSwitch = ({ switchState, enableSwitch }) => {
       {switchState ? "Turn Off" : "Turn On"}
     </LoadingButton>
   );
-};
-
-TaskControlSwitch.propTypes = {
-  enableSwitch: PropTypes.bool,
 };
 
 export default TaskControlSwitch;

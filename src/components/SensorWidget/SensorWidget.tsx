@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from "prop-types";
 import { Grid, Typography, IconButton, SvgIcon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
@@ -216,15 +215,6 @@ const SensorWidget = ({ sensorName, sensorType, sensorData, sensorState }) => {
       </Grid>
     </Grid>
   );
-};
-
-SensorWidget.propTypes = {
-  sensorType: PropTypes.string,
-  sensorData: PropTypes.array,
-  mean: PropTypes.number,
-  min: PropTypes.number,
-  max: PropTypes.number,
-  sensorState: PropTypes.string,
 };
 
 export default SensorWidget;
