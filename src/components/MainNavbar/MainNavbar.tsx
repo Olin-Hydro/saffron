@@ -38,10 +38,11 @@ function MainNavbar() {
             <Box sx={{ flexGrow: 1 }}
               display='flex'
               justifyContent='center'>
+              {/* <Link to={'dashboard'}>Dashboard</Link> */}
               <Button
-                onClick={handleCloseNavMenu}
+                href="dashboard"
                 sx={{ color: 'white', display: 'block' }}
-              >Home</Button>
+              >Dashboard</Button>
             </Box>
           </Grid>
           <Grid
