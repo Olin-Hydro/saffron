@@ -11,6 +11,7 @@ import theme from './theme';
 
 import Root from './routes/Root';
 import ErrorPage from './routes/ErrorPage';
+import Home from './routes/Home';
 import Dashboard from './routes/Dashboard';
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "dashboard",
         element: <Dashboard />,

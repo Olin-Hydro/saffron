@@ -41,6 +41,10 @@ function MainNavbar() {
               display='flex'
               justifyContent='center'>
               <Button
+                href="/"
+                sx={{ color: 'white', display: 'block' }}
+              >Home</Button>
+              <Button
                 href="dashboard"
                 sx={{ color: 'white', display: 'block' }}
               >Dashboard</Button>
