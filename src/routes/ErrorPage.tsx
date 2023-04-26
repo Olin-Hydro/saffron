@@ -1,10 +1,11 @@
 import React from 'react'
-import { isRouteErrorResponse, useRouteError } from "react-router-dom";
+import { isRouteErrorResponse, useRouteError, useNavigate } from "react-router-dom";
 
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import Stack from '@mui/material/Stack';
 import Item from '@mui/material/Stack';
 import { Icon } from '@iconify/react';
+import { ArrowBack } from '@mui/icons-material';
 
 export default function ErrorPage() {
   const getErrorMessage = (error: unknown): string => {
@@ -24,6 +25,8 @@ export default function ErrorPage() {
   const errorMessage = getErrorMessage(error);
   console.error(error);
   console.error(errorMessage);
+
+  let navigate = useNavigate();
 
   return (
     <Stack
@@ -47,6 +50,15 @@ export default function ErrorPage() {
           variant="h4"
           color="text.white"
         >{errorMessage}</Typography>
+      </Item>
+      <Item>
+        <Button
+          sx={{ color: "#FFF" }}
+          startIcon={<ArrowBack />}
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </Button>
       </Item>
     </Stack >
   );
