@@ -27,3 +27,11 @@ The file structure is as follows:
 ├── README.md (this file)
 └── (other Node + TypeScript configuration)
 ```
+
+# Setup
+
+```bash
+export REACT_APP_URL="http://localhost:3000" 
+export REACT_APP_API_URL="http://localhost:8000/"
+export REACT_APP_API_KEY="YOURAPIKEY"
+```
