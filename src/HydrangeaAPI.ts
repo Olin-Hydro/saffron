@@ -3,10 +3,9 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: REACT_APP_API_URL,
-  timeout: 1000,
+  timeout: 5000,
   headers: {
     "x-api-key": REACT_APP_API_KEY,
-    "Access-Control-Allow-Origin": REACT_APP_URL,
     "Content-Type": "application/json"
   },
 });
@@ -61,7 +60,7 @@ const API = {
     return response.data as Reading[]
   },
   getReadingsById: async (sensor_id: string, start: string, end: string) => {
-    const response = await instance.get("sensors/logging/" + sensor_id)
+    const response = await instance.get("sensors/logging/" + sensor_id + "?start=" + start + "&end=" + end)
     return response.data as Reading[]
   },
   getScheduledActions: async (start: string, end: string) => {
