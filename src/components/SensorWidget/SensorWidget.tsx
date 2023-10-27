@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from "prop-types";
 import { Grid, Typography, IconButton, SvgIcon } from "@mui/material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
@@ -17,7 +16,7 @@ import { ReactComponent as PHUnitIcon } from "../../icons/units/unit-ph.svg";
 
 import SensorGraph from "./SensorGraph"
 
-const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
+const SensorWidget = ({ sensorName, sensorType, sensorData, sensorState }) => {
   const values = sensorData.map(reading => reading.value)
   // To do: reading precision should depend on the sensorType
   const mean = sensorData.reduce((sum, reading) => sum + reading.value, 0) / sensorData.length;
@@ -30,42 +29,32 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
   const minString = isFinite(min) ? min.toPrecision(2) : "--"
 
   const [sensorTitle, setSensorTitle] = useState("Unknown");
-  const [sensorIcon, setSensorIcon] = useState();
+  const [sensorIcon, setSensorIcon] = useState(); // TODO: add default icon
+
   const [sensorUnitIcon, setSensorUnitIcon] = useState();
 
-  const setSensorTypeProps = (sensorType: string) => {
+  // useEffect with empty dependencies sets component props only when task state changes
+  useEffect(() => {
+    setSensorTitle(sensorName);
+
     switch (sensorType) {
       case "temp":
         // TODO: add Fahrenheight conversion
         setSensorIcon(TempIcon as any);
-        setSensorTitle("Temp");
         setSensorUnitIcon(CUnitIcon as any)
         break;
-      case "pH":
+      case "ph":
         setSensorIcon(PHIcon as any);
-        setSensorTitle("PH");
         setSensorUnitIcon(PHUnitIcon as any)
-        break;
-      case "level":
-        setSensorIcon(LevelIcon as any);
-        setSensorTitle("Level");
-        setSensorUnitIcon(LevelUnitIcon as any)
         break;
       case "ec":
         setSensorIcon(ECIcon as any);
-        setSensorTitle("EC");
         setSensorUnitIcon(ECUnitIcon as any)
         break;
       default:
-        setSensorTitle("Unknown");
         setSensorUnitIcon(BlankUnitIcon as any)
         break;
     }
-  }
-
-  // useEffect with empty dependencies sets component props only when task state changes
-  useEffect(() => {
-    setSensorTypeProps(sensorType);
   }, []);
 
   return (
@@ -226,15 +215,6 @@ const SensorWidget = ({ sensorType, sensorData, sensorState }) => {
       </Grid>
     </Grid>
   );
-};
-
-SensorWidget.propTypes = {
-  sensorType: PropTypes.string,
-  sensorData: PropTypes.array,
-  mean: PropTypes.number,
-  min: PropTypes.number,
-  max: PropTypes.number,
-  sensorState: PropTypes.string,
 };
 
 export default SensorWidget;

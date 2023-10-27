@@ -15,7 +15,8 @@ import {
 
 import { Grid } from '@mui/material';
 
-const Dashboard = ({ garden_id }) => {
+const DashboardDisplay = ({ garden_id }) => {
+    // TODO: make configurable and default to 24H from current time
     const readings_start = "2000-03-19T22:16:56.020969-0400"
     const readings_stop = "2025-03-19T22:16:56.020969-0400"
 
@@ -72,4 +73,4 @@ const Dashboard = ({ garden_id }) => {
     );
 };
 
-export default Dashboard;
+export default DashboardDisplay;

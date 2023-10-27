@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Box } from "@mui/material";
 import {
   Chart as ChartJS,
@@ -73,10 +72,6 @@ const SensorGraph = ({ sensorData }) => {
       />
     </Box>
   );
-};
-
-SensorGraph.propTypes = {
-  sensorData: PropTypes.array,
 };
 
 export default SensorGraph;

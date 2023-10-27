@@ -31,17 +31,23 @@ function MainNavbar() {
       <Toolbar disableGutters>
         <Grid container maxWidth="xl" alignItems="center">
           <Grid item xs={3}>
-            <LogoMonoWhite>
-            </LogoMonoWhite>
+            <IconButton aria-label="home" href="/" disableRipple>
+              <LogoMonoWhite>
+              </LogoMonoWhite>
+            </IconButton>
           </Grid>
           <Grid item xs={6}>
             <Box sx={{ flexGrow: 1 }}
               display='flex'
               justifyContent='center'>
               <Button
-                onClick={handleCloseNavMenu}
+                href="/"
                 sx={{ color: 'white', display: 'block' }}
               >Home</Button>
+              <Button
+                href="dashboard"
+                sx={{ color: 'white', display: 'block' }}
+              >Dashboard</Button>
             </Box>
           </Grid>
           <Grid
@@ -54,7 +60,7 @@ function MainNavbar() {
           >
             <Grid item>
               <Tooltip title="Help" arrow>
-                <IconButton aria-label="help">
+                <IconButton aria-label="help" href="help">
                   <HelpIcon>
                   </HelpIcon>
                 </IconButton>
@@ -62,7 +68,7 @@ function MainNavbar() {
             </Grid>
             <Grid item>
               <Tooltip title="Github" arrow>
-                <IconButton aria-label="github">
+                <IconButton aria-label="github" href="https://github.com/Olin-Hydro" target="_blank">
                   <GithubIcon>
                   </GithubIcon>
                 </IconButton>
@@ -70,7 +76,7 @@ function MainNavbar() {
             </Grid>
             <Grid item>
               <Tooltip title="Settings" arrow>
-                <IconButton aria-label="settings">
+                <IconButton aria-label="settings" href="settings">
                   <SettingsIcon>
                   </SettingsIcon>
                 </IconButton>
